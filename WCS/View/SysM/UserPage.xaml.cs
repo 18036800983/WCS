@@ -13,17 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WCS
+namespace WCS.View.SysM
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// UserPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow
+    public partial class UserPage : Page
     {
-        public MainWindow()
+        public UserPage()
         {
             InitializeComponent();
         }
 
+        private void DMButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,12 +1,52 @@
-﻿<Window x:Class="WCS.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WCS"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="850" Width="1400" WindowState="Maximized">
-    <Grid Margin="0,0,-0.4,0">
-        
+﻿<DMSkin:DMSkinSimpleWindow
+    x:Class="WCS.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:DMSkin="clr-namespace:DMSkin.WPF;assembly=DMSkin.WPF"
+    xmlns:controls="clr-namespace:WCS.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
+    xmlns:local="clr-namespace:WCS"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:WCS.ViewModel"
+    Title="WMS"
+    Width="1022"
+    Height="670"
+    MinWidth="1062"
+    MinHeight="710"
+    DMWindowShadowColor="#888888"
+    DMWindowShadowOpacity="0.4"
+    DMWindowShadowSize="20"
+    ResizeMode="CanResizeWithGrip"
+    TextOptions.TextFormattingMode="Display"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MinWidth="200" />
+            <ColumnDefinition Width="*" MinWidth="822" />
+        </Grid.ColumnDefinitions>
+        <Grid Background="#F5F5F7">
+            <ScrollViewer
+                    Grid.Row="1"
+                    Grid.RowSpan="2">
+                <StackPanel>
+                    <Expander
+                            Header="推荐"
+                            IsExpanded="True">
+                        <StackPanel>
+                            <controls:ImageRadioButton
+                                    Content="发现音乐"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_systemSetting2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FindMusic}" />
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
-</Window>
+</DMSkin:DMSkinSimpleWindow>
