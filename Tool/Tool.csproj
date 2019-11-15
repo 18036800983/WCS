@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySecurity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB_Tool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml_Tool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCS_Model\WCS_Model.csproj">
+      <Project>{96a33aae-6ea1-4a2c-9561-4f90716cf724}</Project>
+      <Name>WCS_Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

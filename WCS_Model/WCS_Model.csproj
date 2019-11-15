@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,8 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DMSkin.Core, Version=2.5.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WCS\bin\Debug\DMSkin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MyLog, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MyLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +52,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\WMS_Area_Model.cs" />
+    <Compile Include="DB\WMS_Barcode_Model.cs" />
+    <Compile Include="DB\WMS_Character_Model.cs" />
+    <Compile Include="DB\WMS_Client_Model.cs" />
+    <Compile Include="DB\WMS_Partment_Model.cs" />
+    <Compile Include="DB\WMS_Privilege_Model.cs" />
+    <Compile Include="DB\WMS_Production_Model.cs" />
+    <Compile Include="DB\WMS_PutIn_Model.cs" />
+    <Compile Include="DB\WMS_PutOutHis_Model.cs" />
+    <Compile Include="DB\WMS_PutOut_Model.cs" />
+    <Compile Include="DB\WMS_Shelf_Model.cs" />
+    <Compile Include="DB\WMS_Stock_Model.cs" />
+    <Compile Include="DB\WMS_User_Model.cs" />
+    <Compile Include="DB\WMS_Warehouse_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XML\CollectionFormInfo.cs" />
+    <Compile Include="XML\CustomEditor.cs" />
+    <Compile Include="XML\ProviderFactory.cs" />
+    <Compile Include="XML\XmlConverter.cs" />
+    <Compile Include="XML\Xml_ConfigRoot.cs" />
+    <Compile Include="XML\Xml_DbConfig.cs" />
+    <Compile Include="XML\Xml_InfoConfig.cs" />
+    <Compile Include="XML\Xml_InfoConfig_Opcitem.cs" />
+    <Compile Include="XML\Xml_InfoConfig_Station.cs" />
+    <Compile Include="XML\Xml_SerialPortConfig.cs" />
+    <Compile Include="XML\Xml_SysConfig.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

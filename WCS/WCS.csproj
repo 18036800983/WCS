@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.WPF, Version=3.0.20133.367, Culture=neutral, PublicKeyToken=2aa4ec5576d6c3ce, processorArchitecture=MSIL" />
+    <Reference Include="C1.WPF.C1Chart.4, Version=4.0.20133.183, Culture=neutral, PublicKeyToken=f63432dd4d20448b, processorArchitecture=MSIL" />
     <Reference Include="C1.WPF.OutlookBar, Version=3.0.20133.367, Culture=neutral, PublicKeyToken=2aa4ec5576d6c3ce, processorArchitecture=MSIL" />
     <Reference Include="DMSkin.Core, Version=2.5.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -60,6 +61,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,11 +86,71 @@
     <Compile Include="Manager\PageManager.cs" />
     <Compile Include="Model\LeftMenu.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\BaseM\BarcodeRulePage.xaml.cs">
+      <DependentUpon>BarcodeRulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseM\ClientPage.xaml.cs">
+      <DependentUpon>ClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseM\ProductionPage.xaml.cs">
+      <DependentUpon>ProductionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseM\SupplierPage.xaml.cs">
+      <DependentUpon>SupplierPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BoardM\WareHouseBoardPage.xaml.cs">
+      <DependentUpon>WareHouseBoardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BoardM\WareHouseChartPage.xaml.cs">
+      <DependentUpon>WareHouseChartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogM\ChartLogPage.xaml.cs">
+      <DependentUpon>ChartLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogM\LoginLogPage.xaml.cs">
+      <DependentUpon>LoginLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogM\RunLoginPage.xaml.cs">
+      <DependentUpon>RunLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogM\SysLogPage.xaml.cs">
+      <DependentUpon>SysLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OperationM\AddWindow.xaml.cs">
+      <DependentUpon>AddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OperationM\EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SysM\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SysM\PartmentPage.xaml.cs">
+      <DependentUpon>PartmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SysM\PermissionPage.xaml.cs">
+      <DependentUpon>PermissionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SysM\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\AreaPage.xaml.cs">
+      <DependentUpon>AreaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\InStockPage.xaml.cs">
+      <DependentUpon>InStockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\OutWarehousePage.xaml.cs">
+      <DependentUpon>OutWarehousePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\ShelfPage.xaml.cs">
+      <DependentUpon>ShelfPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\StoragePage.xaml.cs">
+      <DependentUpon>StoragePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WareM\WarehousePage.xaml.cs">
+      <DependentUpon>WarehousePage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -140,11 +202,91 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BaseM\BarcodeRulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BaseM\ClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BaseM\ProductionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BaseM\SupplierPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BoardM\WareHouseBoardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BoardM\WareHouseChartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogM\ChartLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogM\LoginLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogM\RunLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LogM\SysLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OperationM\AddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OperationM\EditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SysM\CharacterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SysM\PartmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SysM\PermissionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SysM\UserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\AreaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\InStockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\OutWarehousePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\ShelfPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\StoragePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WareM\WarehousePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,12 +318,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\BaseM\" />
-    <Folder Include="View\BoardM\" />
-    <Folder Include="View\LogM\" />
-    <Folder Include="View\OperationM\" />
-    <Folder Include="View\WareM\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

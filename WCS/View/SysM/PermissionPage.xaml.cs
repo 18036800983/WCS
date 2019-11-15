@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WCS.View.OperationM;
 
-namespace WCS
+namespace WCS.View.SysM
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// PermissionPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow
+    public partial class PermissionPage : Page
     {
-        public MainWindow()
+        public PermissionPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            EditWindow editW = new EditWindow();
-            editW.Show();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<Page x:Class="WCS.View.SysM.CharacterPage"
+﻿<Page x:Class="WCS.View.WareM.AreaPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,7 +24,7 @@
                     Margin="30,0,0,5"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom">
-                    <TextBlock FontSize="18" Text="系统管理 | 角色管理"/>
+                    <TextBlock FontSize="18" Text="仓库管理 | 库区管理"/>
                 </WrapPanel>
             </Grid>
         </Border>
@@ -100,17 +100,11 @@
                     <MouseBinding Command="{Binding PlayCommand}" MouseAction="LeftDoubleClick" />
                 </DataGrid.InputBindings>
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn  Width="20" MinWidth="50" Header="">
-                        <DataGridTemplateColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <WrapPanel>
-                                        <CheckBox x:Name="c" Margin="10,0,0,0"></CheckBox>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.HeaderTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                        Width="Auto"
+                        MinWidth="50"
+                        Binding="{Binding Index}"
+                        Header="" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding LoginName}"
@@ -143,7 +137,6 @@
                         Width="*"
                         Binding="{Binding ModifyTime}"
                         Header="修改时间" />
-
                     <DataGridTemplateColumn Width="*" Header="状态">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
