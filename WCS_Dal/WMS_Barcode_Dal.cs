@@ -11,7 +11,7 @@ namespace WCS_Dal
     {
 
         /// <summary>
-        /// 查询
+        /// 查询条码规则
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
@@ -37,7 +37,7 @@ namespace WCS_Dal
 
 
         /// <summary>
-        /// 添加
+        /// 添加条码规则
         /// </summary>
         /// <returns></returns>
         public static string Insert_Barcode(WMS_Barcode_Model wms_Barcode_Model)
@@ -55,7 +55,7 @@ namespace WCS_Dal
 
 
         /// <summary>
-        /// 更新
+        /// 更新条码规则
         /// </summary>
         /// <returns></returns>
         public static string Update_Barcode(WMS_Barcode_Model wms_Barcode_Model,string condition)
@@ -73,7 +73,7 @@ namespace WCS_Dal
         }
 
         /// <summary>
-        /// 删除
+        /// 删除条码规则
         /// </summary>
         /// <returns></returns>
         public static string Delete_Barcode(string condition)

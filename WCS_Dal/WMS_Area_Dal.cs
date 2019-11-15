@@ -10,7 +10,7 @@ namespace WCS_Dal
     public class WMS_Area_Dal
     {       
         /// <summary>
-        /// 查询
+        /// 查询库区
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
@@ -25,9 +25,9 @@ namespace WCS_Dal
         }
 
         /// <summary>
-        /// 添加
+        /// 添加库区
         /// </summary>
-        /// <param name="wMS_Area_Model"></param>
+        /// <param name="wms_Area_Model"></param>
         /// <returns></returns>
         public static string Insert_Area(WMS_Area_Model wms_Area_Model)
         {
@@ -44,9 +44,9 @@ namespace WCS_Dal
         }
 
         /// <summary>
-        /// 修改
+        /// 修改库区
         /// </summary>
-        /// <param name="wMS_Area_Model"></param>
+        /// <param name="wms_Area_Model"></param>
         /// <param name="condition"></param>
         /// <returns></returns>
         public static string Update_Area(WMS_Area_Model wms_Area_Model, string condition)
@@ -65,7 +65,7 @@ namespace WCS_Dal
         }
 
         /// <summary>
-        /// 删除
+        /// 删除库区
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
