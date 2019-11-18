@@ -31,6 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="libnodave.net, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\libnodave.net.dll</HintPath>
+    </Reference>
+    <Reference Include="MyPLCDataview, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MyPLCDataview.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +53,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PLC_Bll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="USB_Bll.cs" />
+    <Compile Include="WMS_Area_Bll.cs" />
+    <Compile Include="WMS_Barcode_Bll.cs" />
+    <Compile Include="WMS_Character_Bll.cs" />
+    <Compile Include="WMS_Client_Bll.cs" />
+    <Compile Include="WMS_Partment_Bll.cs" />
+    <Compile Include="WMS_Privilege_Bll.cs" />
+    <Compile Include="WMS_Production_Bll.cs" />
+    <Compile Include="WMS_PutIn_Bll.cs" />
+    <Compile Include="WMS_PutOutHis_Bll.cs" />
+    <Compile Include="WMS_PutOut_Bll.cs" />
+    <Compile Include="WMS_Shelf_Bll.cs" />
+    <Compile Include="WMS_Stock_Bll.cs" />
+    <Compile Include="WMS_User_Bll.cs" />
+    <Compile Include="WMS_Warehouse_Bll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tool\Tool.csproj">
+      <Project>{4A353453-EE2A-496F-840A-5A59BB60EBCB}</Project>
+      <Name>Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCS_Dal\WCS_Dal.csproj">
+      <Project>{1F4BB881-A2B6-42ED-AE5C-02FBD2F24FE7}</Project>
+      <Name>WCS_Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCS_Model\WCS_Model.csproj">
+      <Project>{96A33AAE-6EA1-4A2C-9561-4F90716CF724}</Project>
+      <Name>WCS_Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
