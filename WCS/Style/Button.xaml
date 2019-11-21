@@ -303,7 +303,7 @@
                                 x:Name="Content"
                                 Width="12"
                                 Height="12"
-                                Data="{StaticResource Icon_Close}"
+                                Data="{StaticResource Icon_close}"
                                 Fill="{Binding DMSystemButtonForeground, RelativeSource={RelativeSource TemplatedParent}}"
                                 Stretch="Fill"
                                 UseLayoutRounding="True" />

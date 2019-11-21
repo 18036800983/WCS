@@ -24,30 +24,188 @@
     <Window.DataContext>
         <viewmodel:MainWindowViewModel />
     </Window.DataContext>
-    <Grid Grid.Row="1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" MinWidth="200" />
-            <ColumnDefinition Width="*" MinWidth="822" />
-        </Grid.ColumnDefinitions>
-        <Grid Background="#F5F5F7">
-            <ScrollViewer
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid Background="{DynamicResource ThemeButtonColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <WrapPanel
+                Margin="15,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <Border
+                    Width="22"
+                    Height="22"
+                    Background="White"
+                    CornerRadius="100">
+                    <Path
+                        Width="14"
+                        Height="14"
+                        Data="{DynamicResource Icon_wms}"
+                        Fill="{StaticResource ThemeColor2}"
+                        Stretch="Uniform" />
+                </Border>
+                <TextBlock
+                    Margin="4,0,0,0"
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource FontTitle}"
+                    FontSize="17"
+                    Foreground="White"
+                    Text="WMS管理系统" />
+            </WrapPanel>
+            <StackPanel
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+            </StackPanel>
+            <StackPanel
+                Grid.Column="2"
+                Margin="0,0,12,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <dmcontrols:DMButton
+                    Margin="10,0,15,0"
+                    Background="{StaticResource TransparentColor}"
+                    BorderThickness="0"
+                    Cursor="Hand">
+                    <WrapPanel>
+                        <Ellipse Width="25" Height="25">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="ZJS" />
+                        <Path
+                            Width="10"
+                            Height="10"
+                            Margin="15,0,0,0"
+                            Data="{StaticResource Icon_menuDown}"
+                            Fill="White"
+                            Stretch="Uniform" />
+                    </WrapPanel>
+                </dmcontrols:DMButton>
+                <dmcontrols:DMSystemButton
+                    Margin="5,0,15,0"
+                    Cursor="Hand"
+                    DMSystemButtonForeground="#EEC1C1"
+                    DMSystemButtonHoverColor="Transparent"
+                    DMSystemButtonHoverForeground="White"
+                    DMSystemButtonSize="27"
+                    Icon="{StaticResource Icon_skinning}"
+                    IconWidth="17" />
+                <Grid>
+                    <dmcontrols:DMSystemButton
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Right"
+                        Cursor="Hand"
+                        DMSystemButtonForeground="#EEC1C1"
+                        DMSystemButtonHoverColor="Transparent"
+                        DMSystemButtonHoverForeground="White"
+                        DMSystemButtonSize="26"
+                        Icon="{StaticResource Icon_message}"
+                        IconHeight="12"
+                        IconWidth="16" />
+                    <Border
+                        Height="16"
+                        Margin="0,0,-5,15"
+                        Padding="4,0,4,0"
+                        HorizontalAlignment="Right"
+                        Background="White"
+                        CornerRadius="8">
+                        <TextBlock
+                            Margin="0,0,0,1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{StaticResource ThemeColor}"
+                            Text="0" />
+                    </Border>
+                </Grid>
+                <dmcontrols:DMSystemButton
+                    Margin="10,0,0,0"
+                    Cursor="Hand"
+                    DMSystemButtonForeground="#EEC1C1"
+                    DMSystemButtonHoverColor="Transparent"
+                    DMSystemButtonHoverForeground="White"
+                    DMSystemButtonSize="26"
+                    Icon="{StaticResource Icon_systemSetting2}" />
+                <Border
+                    Width="1"
+                    Height="22"
+                    Margin="14,0,10,0"
+                    Background="#A82828" />
+                <dmcontrols:DMSystemMinButton
+                    Cursor="Hand"
+                    DMSystemButtonForeground="#EEC1C1"
+                    DMSystemButtonHoverColor="Transparent"
+                    DMSystemButtonHoverForeground="White"
+                    DMSystemButtonSize="22"
+                    Icon="{StaticResource Icon_min}" />
+                <dmcontrols:DMSystemMaxButton
+                    Cursor="Hand"
+                    DMSystemButtonForeground="#EEC1C1"
+                    DMSystemButtonHoverColor="Transparent"
+                    DMSystemButtonHoverForeground="White"
+                    DMSystemButtonSize="24"
+                    Icon="{StaticResource Icon_max}" />
+                <dmcontrols:DMSystemCloseButton
+                    Cursor="Hand"
+                    DMSystemButtonForeground="#EEC1C1"
+                    DMSystemButtonHoverColor="Transparent"
+                    DMSystemButtonHoverForeground="White"
+                    DMSystemButtonSize="22" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" MinWidth="200" />
+                <ColumnDefinition Width="*" MinWidth="822" />
+            </Grid.ColumnDefinitions>
+            <Grid Background="#F5F5F7">
+                <ScrollViewer
                     Grid.Row="1"
                     Grid.RowSpan="2">
-                <StackPanel>
-                    <Expander
-                            Header="推荐"
+                    <StackPanel>
+                        <Expander
+                            Header="基础配置"
                             IsExpanded="True">
-                        <StackPanel>
-                            <controls:ImageRadioButton
-                                    Content="发现音乐"
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="客户管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_systemSetting2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Client}" />
+                                <controls:ImageRadioButton
+                                    Content="产品管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_systemSetting2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Prodution}" />
+                                <controls:ImageRadioButton
+                                    Content="供应商管理"
                                     GroupName="Menu"
                                     Image="{StaticResource Icon_systemSetting2}"
                                     IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FindMusic}" />
-                        </StackPanel>
-                    </Expander>
-                </StackPanel>
-            </ScrollViewer>
+                                <controls:ImageRadioButton
+                                    Content="条码规则"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_systemSetting2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FindMusic}" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
         </Grid>
-        <Button x:Name="button" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="348,214,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </DMSkin:DMSkinSimpleWindow>

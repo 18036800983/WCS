@@ -12,23 +12,110 @@ namespace WCS.Model
         /// 空页面
         /// </summary>
         Empty,
+
+        /// <summary>
+        /// 主页
+        /// </summary>
         Home,
+
         /// <summary>
-        /// 发现音乐
+        /// 空页面
         /// </summary>
-        FindMusic,
+        BarcodeRule,
+
         /// <summary>
-        /// 本地音乐
+        /// 客户
         /// </summary>
-        LocalMusic,
-        DownLoad,
+        Client,
+
         /// <summary>
-        /// 云盘音乐
+        /// 产品
         /// </summary>
-        CloudMusic,
+        Prodution,
+
         /// <summary>
-        /// 我的收藏
+        /// 供应商
         /// </summary>
-        Collection
+        Supplier,
+
+        /// <summary>
+        /// 仓库看板
+        /// </summary>
+        WareHouseBoard,
+
+        /// <summary>
+        /// 仓库数据分析
+        /// </summary>
+        WareHouseChart,
+
+        /// <summary>
+        /// 日志分析（运行）
+        /// </summary>
+        ChartLog,
+
+        /// <summary>
+        /// 登录日志
+        /// </summary>
+        LoginLog,
+
+        /// <summary>
+        /// 运行日志
+        /// </summary>
+        RunLog,
+
+        /// <summary>
+        /// 系统日志
+        /// </summary>
+        SysLog,
+
+        /// <summary>
+        /// 角色
+        /// </summary>
+        Character,
+
+        /// <summary>
+        /// 部门
+        /// </summary>
+        Partment,
+
+        /// <summary>
+        /// 权限
+        /// </summary>
+        Permiss,
+
+        /// <summary>
+        /// 用户
+        /// </summary>
+        User,
+
+        /// <summary>
+        /// 库区
+        /// </summary>
+        Area,
+
+        /// <summary>
+        /// 入库
+        /// </summary>
+        InStock,
+
+        /// <summary>
+        /// 出库
+        /// </summary>
+        OutWarehouse,
+
+        /// <summary>
+        /// 货架
+        /// </summary>
+        Shelf,
+
+        /// <summary>
+        /// 存储
+        /// </summary>
+        Storage,
+
+        /// <summary>
+        /// 仓库
+        /// </summary>
+        WareHouse,
     }
 }
