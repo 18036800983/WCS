@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using WCS_Model.XML;
@@ -11,8 +12,7 @@ using WCS_Model.XML;
 namespace Tool
 {
     public class Xml_Tool
-    {
-        private static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+    {     
         private static string configFilePath = @"MyFile\MyConfig.dll";//配置文件地址
 
         public static Xml_ConfigRoot xml;//配置文件

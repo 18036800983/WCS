@@ -19,7 +19,7 @@ namespace WCS.Model
         Home,
 
         /// <summary>
-        /// 空页面
+        /// 条码规则
         /// </summary>
         BarcodeRule,
 

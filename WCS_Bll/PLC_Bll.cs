@@ -16,7 +16,6 @@ namespace WCS_Bll
         public static event recodeStationLog recodePLCStationMessage;
         public delegate void setStatusDg(string name, int index);
         public event setStatusDg setStatusEvent;
-        int boltCurNumber = 1;//螺栓颗数
         public static bool tightMark = true;
 
         public void Init()

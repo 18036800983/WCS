@@ -38,7 +38,7 @@
     </Reference>
     <Reference Include="MyLog, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MyLog.dll</HintPath>
+      <HintPath>..\WCS\bin\Debug\MyLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

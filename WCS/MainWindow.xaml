@@ -10,21 +10,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WCS.ViewModel"
     Title="WMS"
-    Width="1022"
+    Width="1055"
     Height="670"
-    MinWidth="1062"
-    MinHeight="710"
     DMWindowShadowColor="#888888"
     DMWindowShadowOpacity="0.4"
     DMWindowShadowSize="20"
     ResizeMode="CanResizeWithGrip"
     TextOptions.TextFormattingMode="Display"
     WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>
         <viewmodel:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="0,0,0,-2.2">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -79,7 +78,7 @@
                     <WrapPanel>
                         <Ellipse Width="25" Height="25">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
+                                <ImageBrush ImageSource="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/Head.jpeg" RenderOptions.BitmapScalingMode="Fant" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock
@@ -172,40 +171,217 @@
                 <ColumnDefinition Width="200" MinWidth="200" />
                 <ColumnDefinition Width="*" MinWidth="822" />
             </Grid.ColumnDefinitions>
-            <Grid Background="#F5F5F7">
+            <Grid Background="WhiteSmoke">
                 <ScrollViewer
                     Grid.Row="1"
                     Grid.RowSpan="2">
                     <StackPanel>
                         <Expander
                             Header="基础配置"
-                            IsExpanded="True">
+                            IsExpanded="True"                          
+                            Style="{StaticResource NoExpander}">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="客户管理"
                                     GroupName="Menu"
-                                    Image="{StaticResource Icon_systemSetting2}"
+                                    Image="{StaticResource Icon_khcfdcClient}"
                                     IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Client}" />
                                 <controls:ImageRadioButton
                                     Content="产品管理"
                                     GroupName="Menu"
-                                    Image="{StaticResource Icon_systemSetting2}"
+                                    Image="{StaticResource Icon_production}"
                                     IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Prodution}" />
                                 <controls:ImageRadioButton
                                     Content="供应商管理"
                                     GroupName="Menu"
-                                    Image="{StaticResource Icon_systemSetting2}"
-                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FindMusic}" />
+                                    Image="{StaticResource Icon_supplier}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Supplier}" />
                                 <controls:ImageRadioButton
                                     Content="条码规则"
                                     GroupName="Menu"
-                                    Image="{StaticResource Icon_systemSetting2}"
-                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FindMusic}" />
+                                    Image="{StaticResource Icon_barcode}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=BarcodeRule}" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Header="系统配置"
+                            IsExpanded="True"                          
+                            Style="{StaticResource NoExpander}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="用户管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_user}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=User}" />
+                                <controls:ImageRadioButton
+                                    Content="角色管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_group}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Character}" />
+                                <controls:ImageRadioButton
+                                    Content="部门管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_partment}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Partment}" />
+                                <controls:ImageRadioButton
+                                    Content="权限管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_permission}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Permiss}" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Header="仓库配置"
+                            IsExpanded="True"                          
+                            Style="{StaticResource NoExpander}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="仓库管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_warehouse}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=WareHouse}" />
+                                <controls:ImageRadioButton
+                                    Content="库区管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_area}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Area}" />
+                                <controls:ImageRadioButton
+                                    Content="货架管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_shinshop}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Shelf}" />
+                                <controls:ImageRadioButton
+                                    Content="入库管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_undo}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=InStock}" />
+                                <controls:ImageRadioButton
+                                    Content="出库管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_redo}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=OutWarehouse}" />
+                                <controls:ImageRadioButton
+                                    Content="存储管理"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_storage}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Storage}" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Header="日志管理"
+                            IsExpanded="True"                          
+                            Style="{StaticResource NoExpander}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="登录日志"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_loginlog}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=LoginLog}" />
+                                <controls:ImageRadioButton
+                                    Content="系统日志"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_log}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=SysLog}" />
+                                <controls:ImageRadioButton
+                                    Content="运行日志"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_run2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=RunLog}" />
+                                <controls:ImageRadioButton
+                                    Content="日志分析"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_chart1}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ChartLog}" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Header="看板信息"
+                            IsExpanded="True"                          
+                            Style="{StaticResource NoExpander}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="库位信息"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_blackBoard}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=WareHouseBoard}" />
+                                <controls:ImageRadioButton
+                                    Content="库存分析"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_chart2}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=SysLog}" />
                             </StackPanel>
                         </Expander>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
+            <Grid Grid.Column="1" Background="{StaticResource RightGridColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="216*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="789*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <Frame
+                    x:Name="Frame"
+                    Background="WhiteSmoke"
+                    Content="{Binding CurrentPage}"
+                    NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+            </Grid>
         </Grid>
+        <Border
+            Grid.Row="2"
+            Background="{StaticResource ThemeColor}"
+            BorderBrush="{StaticResource SplitterColor}"
+            BorderThickness="0,0,0,0" HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Bottom">
+            <Grid>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                </Grid>-->
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="42" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" MinWidth="42" />
+                        <ColumnDefinition Width="Auto" MinWidth="80" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="3" Orientation="Horizontal">
+                        <Image
+                            Width="35"
+                            Height="35"
+                            Source="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/logo.ico" Margin="0,2" RenderTransformOrigin="-0.303,0.44" />
+                        <StackPanel
+                            Margin="10,0,40,0"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <Border
+                                MinWidth="32"
+                                Padding="10,2,1,2"
+                                Background="{StaticResource SplitterColor}"
+                                CornerRadius="8,8,8,8">
+                                <TextBlock
+                                    Margin="0,0,10,0"
+                                    HorizontalAlignment="Right"
+                                    FontFamily="微软雅黑"
+                                    FontSize="10"
+                                    Foreground="{StaticResource TextColor}"
+                                    Text="昂华（上海）自动化工程股份有限公司" />
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+        <ResizeGrip Grid.Row="2" Style="{StaticResource WyyResizeGrip}" />
     </Grid>
 </DMSkin:DMSkinSimpleWindow>

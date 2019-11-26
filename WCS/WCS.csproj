@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -39,9 +39,6 @@
     <StartupObject>WCS.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.WPF, Version=3.0.20133.367, Culture=neutral, PublicKeyToken=2aa4ec5576d6c3ce, processorArchitecture=MSIL" />
-    <Reference Include="C1.WPF.C1Chart.4, Version=4.0.20133.183, Culture=neutral, PublicKeyToken=f63432dd4d20448b, processorArchitecture=MSIL" />
-    <Reference Include="C1.WPF.OutlookBar, Version=3.0.20133.367, Culture=neutral, PublicKeyToken=2aa4ec5576d6c3ce, processorArchitecture=MSIL" />
     <Reference Include="DMSkin.Core, Version=2.5.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DMSkin.Core.dll</HintPath>
@@ -54,6 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>bin\Debug\Interop.Shell32.dll</HintPath>
+    </Reference>
+    <Reference Include="MyLog, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MyLog.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -76,6 +77,9 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>bin\Debug\C1\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -85,7 +89,51 @@
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
     <Compile Include="Manager\PageManager.cs" />
     <Compile Include="Model\LeftMenu.cs" />
+    <Compile Include="ViewBase\BaseM\BarcodeRuleBase.cs" />
+    <Compile Include="ViewBase\BaseM\ClientBase.cs" />
+    <Compile Include="ViewBase\BaseM\ProductionBase.cs" />
+    <Compile Include="ViewBase\BaseM\SupplierBase.cs" />
+    <Compile Include="ViewBase\BoardM\WareHouseBoardBase.cs" />
+    <Compile Include="ViewBase\BoardM\WareHouseChartBase.cs" />
+    <Compile Include="ViewBase\LogM\ChartLogBase.cs" />
+    <Compile Include="ViewBase\LogM\LoginLogBase.cs" />
+    <Compile Include="ViewBase\LogM\RunLoginBase.cs" />
+    <Compile Include="ViewBase\LogM\SysLogBase.cs" />
+    <Compile Include="ViewBase\OperationM\AddBase.cs" />
+    <Compile Include="ViewBase\OperationM\EditBase.cs" />
+    <Compile Include="ViewBase\SysM\CharacterBase.cs" />
+    <Compile Include="ViewBase\SysM\PartmentBase.cs" />
+    <Compile Include="ViewBase\SysM\PermissionBase.cs" />
+    <Compile Include="ViewBase\SysM\UserBase.cs" />
+    <Compile Include="ViewBase\WareM\AreaBase.cs" />
+    <Compile Include="ViewBase\WareM\InStockBase.cs" />
+    <Compile Include="ViewBase\WareM\OutWarehouseBase.cs" />
+    <Compile Include="ViewBase\WareM\ShelfBase.cs" />
+    <Compile Include="ViewBase\WareM\StorageBase.cs" />
+    <Compile Include="ViewBase\WareM\WarehouseBase.cs" />
+    <Compile Include="ViewModel\BaseM\BarcodeRuleViewModel.cs" />
+    <Compile Include="ViewModel\BaseM\ClientViewModel.cs" />
+    <Compile Include="ViewModel\BaseM\ProductionViewModel.cs" />
+    <Compile Include="ViewModel\BaseM\SupplierViewModel.cs" />
+    <Compile Include="ViewModel\BoardM\WareHouseBoardViewModel.cs" />
+    <Compile Include="ViewModel\BoardM\WareHouseChartBase.cs" />
+    <Compile Include="ViewModel\LogM\ChartLogViewModel.cs" />
+    <Compile Include="ViewModel\LogM\LoginLogViewModel.cs" />
+    <Compile Include="ViewModel\LogM\RunLoginViewModel.cs" />
+    <Compile Include="ViewModel\LogM\SysLogViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\OperationM\AddViewModel.cs" />
+    <Compile Include="ViewModel\OperationM\EditViewModel.cs" />
+    <Compile Include="ViewModel\SysM\CharacterViewModel.cs" />
+    <Compile Include="ViewModel\SysM\PartmentViewModel.cs" />
+    <Compile Include="ViewModel\SysM\PermissionViewModel.cs" />
+    <Compile Include="ViewModel\SysM\UserViewModel.cs" />
+    <Compile Include="ViewModel\WareM\AreaViewModel.cs" />
+    <Compile Include="ViewModel\WareM\InStockViewModel.cs" />
+    <Compile Include="ViewModel\WareM\OutWarehouseViewModel.cs" />
+    <Compile Include="ViewModel\WareM\ShelfViewModel.cs" />
+    <Compile Include="ViewModel\WareM\StorageViewModel.cs" />
+    <Compile Include="ViewModel\WareM\WarehouseViewModel.cs" />
     <Compile Include="View\BaseM\BarcodeRulePage.xaml.cs">
       <DependentUpon>BarcodeRulePage.xaml</DependentUpon>
     </Compile>
@@ -312,7 +360,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -325,6 +372,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Tool\Tool.csproj">
+      <Project>{4A353453-EE2A-496F-840A-5A59BB60EBCB}</Project>
+      <Name>Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCS_Bll\WCS_Bll.csproj">
+      <Project>{16C47284-7FE1-4A1D-BCD9-FB9FAED0BD7B}</Project>
+      <Name>WCS_Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCS_Model\WCS_Model.csproj">
+      <Project>{96A33AAE-6EA1-4A2C-9561-4F90716CF724}</Project>
+      <Name>WCS_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
