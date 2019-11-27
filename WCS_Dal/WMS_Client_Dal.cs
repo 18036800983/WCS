@@ -18,7 +18,7 @@ namespace WCS_Dal
         public static string Select_Client(string condition)
         {
             string _selectClient = string.Empty;
-            if (string.IsNullOrEmpty(condition))
+            if (!string.IsNullOrEmpty(condition))
             {
                 _selectClient = "SELECT [CompanyName]"
                     + ",[ProductionName],[CreatPerson],[CreatTime]"

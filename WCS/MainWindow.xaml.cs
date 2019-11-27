@@ -26,10 +26,10 @@ namespace WCS
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DMButton_SwitchUser_Click(object sender, RoutedEventArgs e)
         {
-            EditWindow editW = new EditWindow();
-            editW.Show();
+            BarcodeRuleButton.Visibility = Visibility.Collapsed;
+            InitializeComponent();
         }
     }
 }

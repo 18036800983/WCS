@@ -5,6 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewmodel="clr-namespace:WCS.ViewModel.SysM"
       xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
+      xmlns:controls="clr-namespace:WCS.Controls"
       mc:Ignorable="d"
       Title="UserWindow" 
       d:DesignHeight="450"
@@ -34,7 +35,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
-                <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
+                <StackPanel Margin="30,0,0,-0.2" Orientation="Horizontal">
                     <dmcontrols:DMButton
                         Width="28"
                         Height="28"
@@ -77,6 +78,45 @@
                             Fill="White"
                             Stretch="Uniform" />
                     </dmcontrols:DMButton>
+                    <dmcontrols:DMButton
+                        Width="28"
+                        Height="28"
+                        Background="{StaticResource ThemeColor}"
+                        BorderThickness="0"
+                        CornerRadius="0,5,5,0"
+                        Foreground="White" Click="DMButton_Save_Click">
+                        <Path
+                            Width="12"
+                            Height="12"
+                            Data="{StaticResource Icon_success}"
+                            Fill="White"
+                            Stretch="Uniform" />
+                    </dmcontrols:DMButton>
+                    <Grid Margin="20,18,0,17.8" Width="137" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="搜索角色    "
+                            Name="SearchText"
+                            HintColor="{StaticResource ThemeColor}" HorizontalAlignment="Left" Width="117" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" />
+                        <dmcontrols:DMButton
+                                Grid.Column="1"
+                                Background="{StaticResource ThemeColor}"
+                                BorderThickness="0" Click="DMButton_Search_Click">
+                            <Path
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource Icon_search}"
+                                Fill="White"
+                                Stretch="Fill" />
+                        </dmcontrols:DMButton>
+                    </Grid>
                 </StackPanel>
             </Border>
             <DataGrid
@@ -93,11 +133,11 @@
                 ColumnHeaderHeight="30"
                 GridLinesVisibility="None"
                 HeadersVisibility="Column"
-                IsReadOnly="False"
+                IsReadOnly="True"
                 ItemsSource="{Binding CharacterList}"
                 RowHeight="28"
                 RowEditEnding="CharacterDataDrid_RowEditEnding"
-                SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}">
+                SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}" Margin="0,0.4,0,0">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="操作" Width="60">
                         <DataGridTemplateColumn.CellTemplate>

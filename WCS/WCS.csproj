@@ -381,6 +381,10 @@
       <Project>{16C47284-7FE1-4A1D-BCD9-FB9FAED0BD7B}</Project>
       <Name>WCS_Bll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WCS_Dal\WCS_Dal.csproj">
+      <Project>{1F4BB881-A2B6-42ED-AE5C-02FBD2F24FE7}</Project>
+      <Name>WCS_Dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCS_Model\WCS_Model.csproj">
       <Project>{96A33AAE-6EA1-4A2C-9561-4F90716CF724}</Project>
       <Name>WCS_Model</Name>

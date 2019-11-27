@@ -18,6 +18,9 @@ namespace WCS.ViewModel.SysM
             ShowCharacterTable();
         }
 
+        /// <summary>
+        /// 显示角色列表
+        /// </summary>
         public void ShowCharacterTable()
         {
             foreach (var model in GetCharacterList())
@@ -27,6 +30,10 @@ namespace WCS.ViewModel.SysM
             ShowCharacterList();
         }
 
+        /// <summary>
+        /// 获取角色列表
+        /// </summary>
+        /// <returns></returns>
         public static List<WMS_Character_Model> GetCharacterList()
         {
             List<WMS_Character_Model> list = new List<WMS_Character_Model>();

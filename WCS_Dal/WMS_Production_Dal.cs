@@ -48,7 +48,7 @@ namespace WCS_Dal
                 + "','" + wms_Production_Model.ProductionName + "','" 
                 + wms_Production_Model.LocationNo + "','" 
                 + wms_Production_Model.WarehouseNo + "','" + wms_Production_Model.CreatPerson 
-                + "','" + wms_Production_Model.CreatPerson + "','" + wms_Production_Model.ModifyPerson 
+                + "','" + wms_Production_Model.CreatTime + "','" + wms_Production_Model.ModifyPerson 
                 + "','" + wms_Production_Model.ModifyTime + "')";
             return _insertSql;
         }
