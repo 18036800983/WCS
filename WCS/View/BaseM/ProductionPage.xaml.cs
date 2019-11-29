@@ -103,7 +103,7 @@ namespace WCS.View.BaseM
         {
             productionBase.ProductionList.Clear();
             List<WMS_Production_Model> list = new List<WMS_Production_Model>();
-            DataTable dt = WMS_Client_Bll.Select_Client(" CompanyName = '" + SearchText.Text.Trim() + "'");
+            DataTable dt = WMS_Production_Bll.Select_Production(" ProductionName = '" + SearchText.Text.Trim() + "'");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 WMS_Production_Model wMS_Production_Model = new WMS_Production_Model

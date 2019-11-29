@@ -46,6 +46,7 @@
     <Compile Include="WMS_Barcode_Dal.cs" />
     <Compile Include="WMS_Character_Dal.cs" />
     <Compile Include="WMS_Client_Dal.cs" />
+    <Compile Include="WMS_Log_Dal.cs" />
     <Compile Include="WMS_Partment_Dal.cs" />
     <Compile Include="WMS_Privilege_Dal.cs" />
     <Compile Include="WMS_Production_Dal.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="WMS_PutOut_Dal.cs" />
     <Compile Include="WMS_Shelf_Dal.cs" />
     <Compile Include="WMS_Stock_Dal.cs" />
+    <Compile Include="WMS_Supplier_Dal.cs" />
     <Compile Include="WMS_User_Dal.cs" />
     <Compile Include="WMS_Warehouse_Dal.cs" />
   </ItemGroup>

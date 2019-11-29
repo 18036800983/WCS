@@ -60,6 +60,7 @@
     <Compile Include="WMS_Barcode_Bll.cs" />
     <Compile Include="WMS_Character_Bll.cs" />
     <Compile Include="WMS_Client_Bll.cs" />
+    <Compile Include="WMS_Log_Bll.cs" />
     <Compile Include="WMS_Partment_Bll.cs" />
     <Compile Include="WMS_Privilege_Bll.cs" />
     <Compile Include="WMS_Production_Bll.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="WMS_PutOut_Bll.cs" />
     <Compile Include="WMS_Shelf_Bll.cs" />
     <Compile Include="WMS_Stock_Bll.cs" />
+    <Compile Include="WMS_Supplier_Bll.cs" />
     <Compile Include="WMS_User_Bll.cs" />
     <Compile Include="WMS_Warehouse_Bll.cs" />
   </ItemGroup>

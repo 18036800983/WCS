@@ -5,13 +5,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewmodel="clr-namespace:WCS.ViewModel"
       xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
+      xmlns:viewmodel1="clr-namespace:WCS.ViewModel.LogM"
       mc:Ignorable="d"
       Title="UserWindow" 
       d:DesignHeight="450"
       d:DesignWidth="800"
       Foreground="{StaticResource TextColor}">
     <Page.DataContext>
-        <viewmodel:MainWindowViewModel />
+        <viewmodel1:SysLogViewModel />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -35,51 +36,59 @@
             </Grid.RowDefinitions>
             <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
                 <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White">
-                        <Path
-                            Width="12"
-                            Height="12"
-                            Data="{StaticResource Icon_add}"
-                            Fill="White"
-                            Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White">
-                        <Path
-                            Width="12"
-                            Height="12"
-                            Data="{StaticResource Icon_edit}"
-                            Fill="White"
-                            Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White">
-                        <Path
-                            Width="12"
-                            Height="12"
-                            Data="{StaticResource Icon_delete}"
-                            Fill="White"
-                            Stretch="Uniform" />
-                    </dmcontrols:DMButton>
+                    <Grid Margin="0,14,0,14.8" Width="501" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="时间    "
+                            Name="SearchText_Time"
+                            HintColor="{StaticResource SplitterColor}" HorizontalAlignment="Left" Width="115" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" />
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="位置    "
+                            Name="SearchText_Location"
+                            HintColor="{StaticResource SplitterColor}" HorizontalAlignment="Left" Width="115" Grid.ColumnSpan="2" Margin="120,0,0,-0.2" />
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="消息    "
+                            Name="SearchText_Message"
+                            HintColor="{StaticResource SplitterColor}" HorizontalAlignment="Left" Width="115" Grid.ColumnSpan="2" Margin="240,0,0,-0.2" />
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="级别    "
+                            Name="SearchText_Level"
+                            HintColor="{StaticResource SplitterColor}" HorizontalAlignment="Left" Width="115" Grid.ColumnSpan="2" Margin="360,0,0,-0.2" />
+                        <dmcontrols:DMButton
+                                Grid.Column="1"
+                                Background="{StaticResource ThemeColor}"
+                                BorderThickness="2" Click="DMButton_Search_Click">
+                            <Path
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource Icon_search}"
+                                Fill="White"
+                                Stretch="Fill" />
+                        </dmcontrols:DMButton>
+                    </Grid>
                 </StackPanel>
             </Border>
             <DataGrid
+                x:Name="SysLogDataDrid"
                 Grid.Row="1"
                 AlternationCount="2"
                 AutoGenerateColumns="False"
@@ -93,57 +102,30 @@
                 GridLinesVisibility="None"
                 HeadersVisibility="Column"
                 IsReadOnly="True"
-                ItemsSource="{Binding MusicList}"
+                ItemsSource="{Binding SysLogList}"
                 RowHeight="28"
-                SelectedItem="{Binding SelectedMusic, Mode=TwoWay}">
-                <DataGrid.InputBindings>
-                    <MouseBinding Command="{Binding PlayCommand}" MouseAction="LeftDoubleClick" />
-                </DataGrid.InputBindings>
+                SelectedItem="{Binding SelectedSysLog, Mode=TwoWay}">
                 <DataGrid.Columns>
                     <DataGridTextColumn
-                        Width="Auto"
-                        MinWidth="50"
-                        Binding="{Binding Index}"
-                        Header="" />
+                        Width="*"
+                        Binding="{Binding LogType}"
+                        Header="日志类型" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding LoginName}"
-                        Header="登录名" />
+                        Binding="{Binding LogLocation}"
+                        Header="日志位置" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding UserName}"
-                        Header="用户名" />
+                        Binding="{Binding LogLevel}"
+                        Header="日志级别" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding PartmentName}"
-                        Header="部门名称" />
+                        Binding="{Binding LogMessage}"
+                        Header="日志信息" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding Permission}"
-                        Header="权限" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding CreatMan}"
-                        Header="创建人" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding CreatTime}"
-                        Header="创建时间" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding ModifyMan}"
-                        Header="修改人" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding ModifyTime}"
-                        Header="修改时间" />
-                    <DataGridTemplateColumn Width="*" Header="状态">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="下载中.." Visibility="{Binding DownLoad, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                        Binding="{Binding LogTime}"
+                        Header="日志时间" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

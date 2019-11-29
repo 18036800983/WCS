@@ -17,7 +17,7 @@ namespace WCS.ViewModel.BaseM
             ShowClientTable();
         }
         /// <summary>
-        /// 显示条码规则列表
+        /// 显示列表
         /// </summary>
         public void ShowClientTable()
         {
@@ -29,7 +29,7 @@ namespace WCS.ViewModel.BaseM
         }
 
         /// <summary>
-        /// 获取角色列表
+        /// 获取列表
         /// </summary>
         /// <returns></returns>
         public static List<WMS_Client_Model> GetClienteList()

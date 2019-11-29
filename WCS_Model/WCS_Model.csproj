@@ -56,6 +56,7 @@
     <Compile Include="DB\WMS_Barcode_Model.cs" />
     <Compile Include="DB\WMS_Character_Model.cs" />
     <Compile Include="DB\WMS_Client_Model.cs" />
+    <Compile Include="DB\WMS_Log_Model.cs" />
     <Compile Include="DB\WMS_Partment_Model.cs" />
     <Compile Include="DB\WMS_Privilege_Model.cs" />
     <Compile Include="DB\WMS_Production_Model.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="DB\WMS_PutOut_Model.cs" />
     <Compile Include="DB\WMS_Shelf_Model.cs" />
     <Compile Include="DB\WMS_Stock_Model.cs" />
+    <Compile Include="DB\WMS_Supplier_Model.cs" />
     <Compile Include="DB\WMS_User_Model.cs" />
     <Compile Include="DB\WMS_Warehouse_Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

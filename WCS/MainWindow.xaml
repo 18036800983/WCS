@@ -18,12 +18,12 @@
     ResizeMode="CanResizeWithGrip"
     TextOptions.TextFormattingMode="Display"
     WindowStartupLocation="CenterScreen"
-    WindowState="Normal"
+    WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>
         <viewmodel:MainWindowViewModel />
     </Window.DataContext>
-    <Grid Margin="0,0,0,-2.2">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />

@@ -29,7 +29,7 @@ namespace WCS.ViewModel.BaseM
         }
 
         /// <summary>
-        /// 获取角色列表
+        /// 获取列表
         /// </summary>
         /// <returns></returns>
         public static List<WMS_Barcode_Model> GetBarcodeList()
