@@ -65,5 +65,30 @@ namespace WCS_Bll
                 return con.Execute(WMS_Log_Dal.Delete_Log(condition));
             }
         }
+
+        /// <summary>
+        /// X
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable XChart(string columnName)
+        {
+            using (var con = GetOpenConnection())
+            {
+                return con.ExecuteDataTable(WMS_Log_Dal.XChart(columnName));
+            }
+        }
+
+        /// <summary>
+        /// Y
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static string YChart(string condition)
+        {
+            using (var con = GetOpenConnection())
+            {
+                return con.ExecuteScalar(WMS_Log_Dal.YChart(condition)).ToString();
+            }
+        }
     }
 }

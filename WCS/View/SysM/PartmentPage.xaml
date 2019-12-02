@@ -5,13 +5,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewmodel="clr-namespace:WCS.ViewModel"
       xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
+      xmlns:viewmodel1="clr-namespace:WCS.ViewModel.SysM"
       mc:Ignorable="d"
       Title="UserWindow" 
       d:DesignHeight="450"
       d:DesignWidth="800"
       Foreground="{StaticResource TextColor}">
     <Page.DataContext>
-        <viewmodel:MainWindowViewModel />
+        <viewmodel1:PartmentViewModel />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -41,7 +42,7 @@
                         Background="{StaticResource ThemeColor}"
                         BorderThickness="0"
                         CornerRadius="0,5,5,0"
-                        Foreground="White">
+                        Foreground="White" Click="DMButton_Add_Click">
                         <Path
                             Width="12"
                             Height="12"
@@ -55,7 +56,7 @@
                         Background="{StaticResource ThemeColor}"
                         BorderThickness="0"
                         CornerRadius="0,5,5,0"
-                        Foreground="White">
+                        Foreground="White" Click="DMButton_Edit_Click">
                         <Path
                             Width="12"
                             Height="12"
@@ -69,7 +70,7 @@
                         Background="{StaticResource ThemeColor}"
                         BorderThickness="0"
                         CornerRadius="0,5,5,0"
-                        Foreground="White">
+                        Foreground="White" Click="DMButton_Delete_Click">
                         <Path
                             Width="12"
                             Height="12"
@@ -77,9 +78,49 @@
                             Fill="White"
                             Stretch="Uniform" />
                     </dmcontrols:DMButton>
+                    <dmcontrols:DMButton
+                        Width="28"
+                        Height="28"
+                        Background="{StaticResource ThemeColor}"
+                        BorderThickness="0"
+                        CornerRadius="0,5,5,0"
+                        Foreground="White" Click="DMButton_Save_Click">
+                        <Path
+                            Width="12"
+                            Height="12"
+                            Data="{StaticResource Icon_success}"
+                            Fill="White"
+                            Stretch="Uniform" />
+                    </dmcontrols:DMButton>
+                    <Grid Margin="20,18,0,17.8" Width="137" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="2"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Hint="搜索部门编号    "
+                            Name="SearchText"
+                            HintColor="{StaticResource ThemeColor}" HorizontalAlignment="Left" Width="117" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" />
+                        <dmcontrols:DMButton
+                                Grid.Column="1"
+                                Background="{StaticResource ThemeColor}"
+                                BorderThickness="2" Click="DMButton_Search_Click">
+                            <Path
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource Icon_search}"
+                                Fill="White"
+                                Stretch="Fill" />
+                        </dmcontrols:DMButton>
+                    </Grid>
                 </StackPanel>
             </Border>
             <DataGrid
+                x:Name="PartmentDataGrid"
                 Grid.Row="1"
                 AlternationCount="2"
                 AutoGenerateColumns="False"
@@ -93,37 +134,29 @@
                 GridLinesVisibility="None"
                 HeadersVisibility="Column"
                 IsReadOnly="True"
-                ItemsSource="{Binding MusicList}"
+                ItemsSource="{Binding PartmentList}"
                 RowHeight="28"
-                SelectedItem="{Binding SelectedMusic, Mode=TwoWay}">
-                <DataGrid.InputBindings>
-                    <MouseBinding Command="{Binding PlayCommand}" MouseAction="LeftDoubleClick" />
-                </DataGrid.InputBindings>
+                RowEditEnding="PartmentDataGrid_RowEditEnding"
+                SelectedItem="{Binding SelectedPartment, Mode=TwoWay}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn
-                        Width="Auto"
-                        MinWidth="50"
-                        Binding="{Binding Index}"
-                        Header="" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding LoginName}"
-                        Header="登录名" />
+                    <DataGridTemplateColumn Header="操作" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Click="CheckBox_Click" Tag="{Binding PartmentNo}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding UserName}"
-                        Header="用户名" />
+                        Binding="{Binding PartmentNo}"
+                        Header="部门编号" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding PartmentName}"
                         Header="部门名称" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding Permission}"
-                        Header="权限" />
-                    <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding CreatMan}"
+                        Binding="{Binding CreatPerson}"
                         Header="创建人" />
                     <DataGridTextColumn
                         Width="*"
@@ -131,19 +164,12 @@
                         Header="创建时间" />
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding ModifyMan}"
+                        Binding="{Binding ModifyPerson}"
                         Header="修改人" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding ModifyTime}"
                         Header="修改时间" />
-                    <DataGridTemplateColumn Width="*" Header="状态">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="下载中.." Visibility="{Binding DownLoad, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

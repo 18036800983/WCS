@@ -81,5 +81,26 @@ namespace WCS_Dal
             }
             return _deleteSql;
         }
+
+        /// <summary>
+        /// X
+        /// </summary>
+        /// <returns></returns>
+        public static string XChart(string columnName)
+        {
+            string _xSql = "select distinct " + columnName + " from WMS_Log Where LogType = 'run'";
+            return _xSql;
+        }
+
+        /// <summary>
+        /// Y
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static string YChart(string condition)
+        {
+            string _ySql = "select Count(*) from WMS_Log Where " + condition;
+            return _ySql;
+        }
     }
 }
