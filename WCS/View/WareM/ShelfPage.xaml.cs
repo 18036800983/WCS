@@ -24,5 +24,40 @@ namespace WCS.View.WareM
         {
             InitializeComponent();
         }
+
+        private void DMButton_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DMButton_Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DMButton_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DMButton_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DMButton_Search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShelfDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

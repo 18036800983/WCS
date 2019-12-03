@@ -29,7 +29,7 @@ namespace WCS.View.WareM
         AreaBase areaBase = new AreaBase();
         int editFlag = 0;//可编辑标签
         string areaName = string.Empty;
-        List<string> selectProductionName = new List<string>();
+        List<string> selectAreaName = new List<string>();
         public AreaPage()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace WCS.View.WareM
         /// <param name="e"></param>
         private void DMButton_Delete_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var no in selectProductionName)
+            foreach (var no in selectAreaName)
             {
                 WMS_Area_Bll.Delete_Area(" AreaName = '" + no + "'");
             }
@@ -149,11 +149,11 @@ namespace WCS.View.WareM
             var bl = dg.IsChecked;
             if (bl == true)
             {
-                selectProductionName.Add(areaName);
+                selectAreaName.Add(areaName);
             }
             else
             {
-                selectProductionName.Remove(areaName);
+                selectAreaName.Remove(areaName);
             }
         }
 
