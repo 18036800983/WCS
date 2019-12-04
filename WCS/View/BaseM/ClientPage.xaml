@@ -149,11 +149,11 @@
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding CompanyName}"
-                        Header="登录名" />
+                        Header="公司名称" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding ProductionName}"
-                        Header="用户名" />
+                        Header="产品名称" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding CreatPerson}"

@@ -102,7 +102,7 @@
                             BorderThickness="2"
                             CaretBrush="{StaticResource ThemeColor}"
                             Foreground="{StaticResource ThemeColor}"
-                            Hint="输入总成号"
+                            Hint="输入货架号"
                             Name="SearchText"
                             HintColor="{StaticResource ThemeColor}" HorizontalAlignment="Left" Width="117" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" />
                         <dmcontrols:DMButton
