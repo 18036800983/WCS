@@ -80,6 +80,9 @@
     <Reference Include="WPFVisifire.Charts">
       <HintPath>bin\Debug\C1\WPFVisifire.Charts.dll</HintPath>
     </Reference>
+    <Reference Include="XamlAnimatedGif, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -99,12 +102,11 @@
     <Compile Include="ViewBase\LogM\LoginLogBase.cs" />
     <Compile Include="ViewBase\LogM\RunLoginBase.cs" />
     <Compile Include="ViewBase\LogM\SysLogBase.cs" />
-    <Compile Include="ViewBase\OperationM\AddBase.cs" />
-    <Compile Include="ViewBase\OperationM\EditBase.cs" />
     <Compile Include="ViewBase\SysM\CharacterBase.cs" />
     <Compile Include="ViewBase\SysM\PartmentBase.cs" />
     <Compile Include="ViewBase\SysM\PermissionBase.cs" />
     <Compile Include="ViewBase\SysM\UserBase.cs" />
+    <Compile Include="ViewBase\TopBar\UserInfoBase.cs" />
     <Compile Include="ViewBase\WareM\AreaBase.cs" />
     <Compile Include="ViewBase\WareM\InStockBase.cs" />
     <Compile Include="ViewBase\WareM\OutWarehouseBase.cs" />
@@ -122,12 +124,11 @@
     <Compile Include="ViewModel\LogM\RunLoginViewModel.cs" />
     <Compile Include="ViewModel\LogM\SysLogViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\OperationM\AddViewModel.cs" />
-    <Compile Include="ViewModel\OperationM\EditViewModel.cs" />
     <Compile Include="ViewModel\SysM\CharacterViewModel.cs" />
     <Compile Include="ViewModel\SysM\PartmentViewModel.cs" />
     <Compile Include="ViewModel\SysM\PermissionViewModel.cs" />
     <Compile Include="ViewModel\SysM\UserViewModel.cs" />
+    <Compile Include="ViewModel\TopBar\UserInfoViewModel.cs" />
     <Compile Include="ViewModel\WareM\AreaViewModel.cs" />
     <Compile Include="ViewModel\WareM\InStockViewModel.cs" />
     <Compile Include="ViewModel\WareM\OutWarehouseViewModel.cs" />
@@ -167,12 +168,6 @@
     <Compile Include="View\LogM\SysLogPage.xaml.cs">
       <DependentUpon>SysLogPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OperationM\AddWindow.xaml.cs">
-      <DependentUpon>AddWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\OperationM\EditWindow.xaml.cs">
-      <DependentUpon>EditWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\SysM\CharacterPage.xaml.cs">
       <DependentUpon>CharacterPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +179,18 @@
     </Compile>
     <Compile Include="View\SysM\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TopBar\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TopBar\SettingPage.xaml.cs">
+      <DependentUpon>SettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TopBar\SkinPage.xaml.cs">
+      <DependentUpon>SkinPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TopBar\UserInfoPage.xaml.cs">
+      <DependentUpon>UserInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WareM\AreaPage.xaml.cs">
       <DependentUpon>AreaPage.xaml</DependentUpon>
@@ -297,14 +304,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\OperationM\AddWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\OperationM\EditWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\SysM\CharacterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -318,6 +317,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SysM\UserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TopBar\MessagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TopBar\SettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TopBar\SkinPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TopBar\UserInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -364,6 +379,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -390,5 +406,14 @@
       <Name>WCS_Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Head.jpeg" />
+    <Resource Include="Image\logo.ico" />
+    <Resource Include="Image\logo2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Car.gif" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

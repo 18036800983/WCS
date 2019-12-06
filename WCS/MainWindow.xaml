@@ -6,7 +6,6 @@
     xmlns:controls="clr-namespace:WCS.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
-    xmlns:local="clr-namespace:WCS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WCS.ViewModel"
     Title="WMS"
@@ -78,7 +77,7 @@
                     <WrapPanel>
                         <Ellipse Width="25" Height="25">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/Head.jpeg" RenderOptions.BitmapScalingMode="Fant" />
+                                <ImageBrush x:Name="headImage" ImageSource="Image/Head.jpeg"  RenderOptions.BitmapScalingMode="Fant" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock
@@ -309,7 +308,12 @@
                                     Content="库存分析"
                                     GroupName="Menu"
                                     Image="{StaticResource Icon_chart2}"
-                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=SysLog}" />
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=WareHouseChart}" />
+                                <controls:ImageRadioButton
+                                    Content="主页"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_home}"
+                                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Home}" />
                             </StackPanel>
                         </Expander>
                     </StackPanel>
@@ -334,7 +338,7 @@
         </Grid>
         <Border
             Grid.Row="2"
-            Background="{StaticResource ThemeColor}"
+            Background="{StaticResource ThemeButtonColor}"
             BorderBrush="{StaticResource SplitterColor}"
             BorderThickness="0,0,0,0" HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Bottom">
             <Grid>
@@ -358,9 +362,10 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="3" Orientation="Horizontal">
                         <Image
+                            x:Name="logoImage"
                             Width="35"
                             Height="35"
-                            Source="D:/昂华/立库加MES/立库程序/WCS/WCS/Image/logo.ico" Margin="0,2" RenderTransformOrigin="-0.303,0.44" />
+                            Source="Image/logo.ico" Margin="0,2" RenderTransformOrigin="-0.303,0.44" />
                         <StackPanel
                             Margin="10,0,40,0"
                             VerticalAlignment="Center"

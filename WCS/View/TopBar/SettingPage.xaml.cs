@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WCS.View.OperationM
+namespace WCS.View.TopBar
 {
     /// <summary>
-    /// AddWindow.xaml 的交互逻辑
+    /// SettingPage.xaml 的交互逻辑
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class SettingPage : Page
     {
-        public AddWindow()
+        public SettingPage()
         {
             InitializeComponent();
         }

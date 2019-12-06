@@ -23,10 +23,21 @@ namespace WCS.View.LogM
     /// </summary>
     public partial class ChartLogPage : Page
     {
+        //chartType: 0---column, 1---line ,2---pie,13---point
         public ChartLogPage()
         {
-            InitializeComponent();
-            //CreatChart(0, GetCharData("LogMessage"),"异常信息统计图",1, columnChart);
+            try
+            {
+                InitializeComponent();
+                CreatChart(0, GetCharData("LogTime"), "异常信息统计图", 3, ColumnChart);
+                CreatChart(1, GetCharData("LogTime"), "异常信息统计图", 3, LineChart);
+                CreatChart(2, GetCharData("LogTime"), "异常信息统计图", 3, PieChart);
+                CreatChart(13, GetCharData("LogTime"), "异常信息统计图", 3, PointChart);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" 异常信息：" + ex.Message);
+            }
         }
 
         /// <summary>
@@ -56,7 +67,7 @@ namespace WCS.View.LogM
         /// <param name="dic"></param>
         /// <param name="titleValue"></param>
         /// <param name="XType"></param>
-        public void CreatChart(int chartType, Dictionary<string, Dictionary<string, string>> dic, string titleValue, int XType,Grid dataGridName)
+        public static void CreatChart(int chartType, Dictionary<string, Dictionary<string, string>> dic, string titleValue, int XType, DockPanel dataGridName)
         {
             Chart chart = new Chart();
 
@@ -70,7 +81,7 @@ namespace WCS.View.LogM
             if (XType == 3)
             {
                 Axis axis = new Axis();
-                axis.IntervalType = IntervalTypes.Seconds;
+                axis.IntervalType = IntervalTypes.Months;
                 axis.ValueFormatString = "MMdd hh:mm";
                 axis.Interval = 60;
                 chart.AxesX.Add(axis);

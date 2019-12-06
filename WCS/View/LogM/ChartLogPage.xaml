@@ -3,17 +3,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:viewmodel="clr-namespace:WCS.ViewModel"
-      xmlns:viewmodel1="clr-namespace:WCS.ViewModel.LogM"
       mc:Ignorable="d"
       Title="ChartLogPage" 
       d:DesignHeight="450"
       d:DesignWidth="800"
       Foreground="{StaticResource TextColor}">
-    <Page.DataContext>
-        <viewmodel1:ChartLogViewModel />
-    </Page.DataContext>
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,-0.4,1.4">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -21,15 +16,26 @@
         <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
             <Grid>
                 <WrapPanel
-                    Margin="30,0,0,5"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom">
+                        Margin="30,0,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom">
                     <TextBlock FontSize="18" Text="日志管理 | 运行日志分析"/>
                 </WrapPanel>
             </Grid>
         </Border>
-        <Grid x:Name="columnChart" HorizontalAlignment="Left" Height="133" Margin="0,0.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="800" Background="AliceBlue"/>
-        <Grid x:Name="lineChart" HorizontalAlignment="Left" Height="133" Margin="0,129.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="800" Background="AntiqueWhite"/>
-        <Grid x:Name="pieChart" HorizontalAlignment="Left" Height="134" Margin="0,258.4,0,-0.4" Grid.Row="1" VerticalAlignment="Top" Width="800" Background="Aqua"/>
+        <Grid Margin="0,0,0,0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DockPanel x:Name="ColumnChart" Background="SkyBlue" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+            <DockPanel x:Name="LineChart" Background="AntiqueWhite" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" />
+            <DockPanel x:Name="PieChart"  Background="Aqua" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"  />
+            <DockPanel x:Name="PointChart" Background="AliceBlue" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Column="1" />
+        </Grid>
     </Grid>
 </Page>

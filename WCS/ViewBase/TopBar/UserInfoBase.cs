@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WCS.ViewModel.OperationM
+namespace WCS.ViewBase.TopBar
 {
-    class AddViewModel
+    class UserInfoBase
     {
     }
 }
