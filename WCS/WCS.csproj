@@ -14,9 +14,24 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,6 +40,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +54,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>WCS.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>exe.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DMSkin.Core, Version=2.5.1.1, Culture=neutral, processorArchitecture=MSIL">
@@ -51,10 +71,6 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>bin\Debug\Interop.Shell32.dll</HintPath>
-    </Reference>
-    <Reference Include="MyLog, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MyLog.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,6 +106,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Converters\ExpendMethod.cs" />
     <Compile Include="Manager\PageManager.cs" />
     <Compile Include="Model\LeftMenu.cs" />
     <Compile Include="ViewBase\BaseM\BarcodeRuleBase.cs" />
@@ -98,6 +115,7 @@
     <Compile Include="ViewBase\BaseM\SupplierBase.cs" />
     <Compile Include="ViewBase\BoardM\WareHouseBoardBase.cs" />
     <Compile Include="ViewBase\BoardM\WareHouseChartBase.cs" />
+    <Compile Include="ViewBase\LoginM\LoginBase.cs" />
     <Compile Include="ViewBase\LogM\ChartLogBase.cs" />
     <Compile Include="ViewBase\LogM\LoginLogBase.cs" />
     <Compile Include="ViewBase\LogM\RunLoginBase.cs" />
@@ -106,6 +124,9 @@
     <Compile Include="ViewBase\SysM\PartmentBase.cs" />
     <Compile Include="ViewBase\SysM\PermissionBase.cs" />
     <Compile Include="ViewBase\SysM\UserBase.cs" />
+    <Compile Include="ViewBase\TopBar\Messagebase.cs" />
+    <Compile Include="ViewBase\TopBar\SettingBase.cs" />
+    <Compile Include="ViewBase\TopBar\SkinBase.cs" />
     <Compile Include="ViewBase\TopBar\UserInfoBase.cs" />
     <Compile Include="ViewBase\WareM\AreaBase.cs" />
     <Compile Include="ViewBase\WareM\InStockBase.cs" />
@@ -119,6 +140,7 @@
     <Compile Include="ViewModel\BaseM\SupplierViewModel.cs" />
     <Compile Include="ViewModel\BoardM\WareHouseBoardViewModel.cs" />
     <Compile Include="ViewModel\BoardM\WareHouseChartBase.cs" />
+    <Compile Include="ViewModel\LoginM\LoginViewModel.cs" />
     <Compile Include="ViewModel\LogM\ChartLogViewModel.cs" />
     <Compile Include="ViewModel\LogM\LoginLogViewModel.cs" />
     <Compile Include="ViewModel\LogM\RunLoginViewModel.cs" />
@@ -128,6 +150,9 @@
     <Compile Include="ViewModel\SysM\PartmentViewModel.cs" />
     <Compile Include="ViewModel\SysM\PermissionViewModel.cs" />
     <Compile Include="ViewModel\SysM\UserViewModel.cs" />
+    <Compile Include="ViewModel\TopBar\MessageViewModel.cs" />
+    <Compile Include="ViewModel\TopBar\SettingViewModel.cs" />
+    <Compile Include="ViewModel\TopBar\SkinViewModel.cs" />
     <Compile Include="ViewModel\TopBar\UserInfoViewModel.cs" />
     <Compile Include="ViewModel\WareM\AreaViewModel.cs" />
     <Compile Include="ViewModel\WareM\InStockViewModel.cs" />
@@ -155,6 +180,9 @@
     </Compile>
     <Compile Include="View\BoardM\WareHouseChartPage.xaml.cs">
       <DependentUpon>WareHouseChartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginM\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogM\ChartLogPage.xaml.cs">
       <DependentUpon>ChartLogPage.xaml</DependentUpon>
@@ -288,6 +316,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LoginM\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogM\ChartLogPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -414,6 +446,29 @@
   <ItemGroup>
     <Resource Include="Image\Car.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\ic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\anwha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\next.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="exe.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

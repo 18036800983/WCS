@@ -21,6 +21,10 @@ namespace WCS_Model.DB
 
         private string putInNo;
 
+        private string locationNo;
+
+        private int status;
+
         /// <summary>
         /// 货架编号
         /// </summary>
@@ -73,6 +77,24 @@ namespace WCS_Model.DB
         {
             get => putInNo;
             set { putInNo = value; OnPropertyChanged("PutInNo"); }
+        }
+
+        /// <summary>
+        /// 位置
+        /// </summary>
+        public string LocationNo 
+        { 
+            get => locationNo;
+            set { locationNo = value; OnPropertyChanged("LocationNo"); }
+        }
+
+        /// <summary>
+        /// 总成状态
+        /// </summary>
+        public int Status 
+        { 
+            get => status;
+            set { status = value; OnPropertyChanged("Status"); }
         }
     }
 }

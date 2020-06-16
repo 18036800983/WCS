@@ -3,14 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
-      xmlns:viewmodel1="clr-namespace:WCS.ViewModel.TopBar"
-      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif" x:Class="WCS.View.TopBar.UserInfoPage"
+      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif" xmlns:viewmodel="clr-namespace:WCS.ViewModel.TopBar" x:Class="WCS.View.TopBar.UserInfoPage"
       mc:Ignorable="d"
       Title="UserWindow" 
       d:DesignHeight="450"
       d:DesignWidth="800"
       Foreground="{StaticResource TextColor}">
+    <Page.DataContext>
+        <viewmodel:UserInfoViewModel />
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -19,18 +20,44 @@
         <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
             <Grid>
                 <WrapPanel
-                    Margin="0,0,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    <TextBlock FontSize="28" Text="用户信息"/>
+                    Margin="30,0,0,5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <TextBlock FontSize="18" Text="系统设置 | 当前用户"/>
                 </WrapPanel>
             </Grid>
         </Border>
-        <Label x:Name="userName_label" Content="用户 ：" HorizontalAlignment="Left" Margin="49,53.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" Height="32" FontSize="18"/>
-        <Label x:Name="loginName_label" Content="登录名 ：" HorizontalAlignment="Left" Margin="49,117.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" FontSize="18"/>
-        <Label x:Name="partMent_label" Content="部门 ：" HorizontalAlignment="Left" Margin="49,186.4,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.57,-0.683" FontSize="18" Width="350"/>
-        <Label x:Name="level_label" Content="级别 ：" HorizontalAlignment="Left" Margin="49,267.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" FontSize="18"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="248" Margin="453,53.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="314" gif:AnimationBehavior.SourceUri="/WCS;component/Image/Head.jpeg"/>
-        <Button x:Name="switch_button" Content="切换用户" HorizontalAlignment="Left" Margin="314,343.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="183" Height="47" FontSize="18"/>
+        <DataGrid
+                x:Name="UserInfoDataGrid"
+                Grid.Row="1"
+                AlternationCount="2"
+                AutoGenerateColumns="False"
+                BorderThickness="0,1,0,0"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="False"
+                CanUserResizeColumns="False"
+                CanUserResizeRows="False"
+                ColumnHeaderHeight="30"
+                GridLinesVisibility="None"
+                HeadersVisibility="Column"
+                IsReadOnly="True"
+                ItemsSource="{Binding UserInfoList}"
+                RowHeight="28">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding LoginName}"
+                        Header="登录名" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding UserName}"
+                        Header="用户名" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding PartmentNo}"
+                        Header="部门编号" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

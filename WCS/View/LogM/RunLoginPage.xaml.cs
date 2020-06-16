@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WCS.ViewBase.LogM;
+using WCS.ViewModel.LogM;
 using WCS_Bll;
 using WCS_Model.DB;
 
@@ -25,9 +26,12 @@ namespace WCS.View.LogM
     public partial class RunLoginPage : Page
     {
         RunLoginBase runLogBase = new RunLoginBase();
+        string curpage = "0";
         public RunLoginPage()
         {
             InitializeComponent();
+            curpage = RunLoginViewModel.page.ToString();
+            CurPage.Text = "        " + curpage + "     " + "/     " + RunLoginViewModel.totalPages;
         }
 
         private void DMButton_Search_Click(object sender, RoutedEventArgs e)
@@ -55,6 +59,119 @@ namespace WCS.View.LogM
                 runLogBase.RunLogList.Add(model);
             }
             this.RunLogDataGrid.ItemsSource = runLogBase.RunLogList;
+        }
+
+        /// <summary>
+        /// 获得第一页是各个数据
+        /// </summary>
+        public void FrushPage()
+        {
+            curpage = RunLoginViewModel.page.ToString();
+
+            CurPage.Text = "        " + curpage + "     " + "/     " + RunLoginViewModel.totalPages;
+
+            this.RunLogDataGrid.ItemsSource = RunLoginViewModel.GetRunLogList();
+        }
+
+        /// <summary>
+        /// 切换控件状态
+        /// </summary>
+        public void CheckContrlStatus()
+        {
+            if (RunLoginViewModel.page == 0 || RunLoginViewModel.totalPages == 1)
+            {
+                FirstPage.IsEnabled = false;
+                previousPage.IsEnabled = false;
+                NextPage.IsEnabled = false;
+                EndPage.IsEnabled = false;
+            }
+            else if (RunLoginViewModel.page == 1 && RunLoginViewModel.page != RunLoginViewModel.totalPages)
+            {
+                FirstPage.IsEnabled = false;
+                previousPage.IsEnabled = false;
+                NextPage.IsEnabled = true;
+                EndPage.IsEnabled = true;
+            }
+            else if (RunLoginViewModel.page == RunLoginViewModel.totalPages && RunLoginViewModel.totalPages != 1)
+            {
+                FirstPage.IsEnabled = true;
+                previousPage.IsEnabled = true;
+                NextPage.IsEnabled = false;
+                EndPage.IsEnabled = false;
+            }
+            else
+            {
+                FirstPage.IsEnabled = true;
+                previousPage.IsEnabled = true;
+                NextPage.IsEnabled = true;
+                EndPage.IsEnabled = true;
+            }
+        }
+
+        private void FirstPage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RunLoginViewModel.page = 1;
+                //RunLoginViewModel.GetRunLogList();
+                CheckContrlStatus();
+                FrushPage();
+            }
+            catch (Exception ex)
+            {
+                //Log.InformationLog.Info("跳到首页事件 ：" + ex);
+            }
+        }
+
+        private void previousPage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (RunLoginViewModel.page != 1)
+                {
+                    RunLoginViewModel.page--;
+                    //RunLoginViewModel.GetRunLogList();
+                    CheckContrlStatus();
+                    FrushPage();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log.InformationLog.Info("上一页事件 ：" + ex);
+            }
+        }
+
+        private void NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (RunLoginViewModel.page != RunLoginViewModel.totalPages)
+                {
+                    RunLoginViewModel.page++;
+                    //RunLoginViewModel.GetRunLogList();
+                    CheckContrlStatus();
+                    FrushPage();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Log.InformationLog.Info("下一页事件 ：" + ex);
+            }
+        }
+
+        private void EndPage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RunLoginViewModel.page = RunLoginViewModel.totalPages;
+                //RunLoginViewModel.GetRunLogList();
+                CheckContrlStatus();
+                FrushPage();
+            }
+            catch (Exception ex)
+            {
+                //Log.InformationLog.Info("跳到尾页事件 ：" + ex);
+            }
         }
     }
 }

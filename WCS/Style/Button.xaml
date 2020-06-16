@@ -26,6 +26,54 @@
         </Setter>
     </Style>
 
+    <Style x:Key="LoginButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="bg"
+                        Background="Transparent"
+                        CornerRadius="100"
+                        UseLayoutRounding="True">
+                        <Path
+                            x:Name="icon"
+                            Width="16"
+                            Height="16"
+                            Margin="5,0,0,0"
+                            Data="{StaticResource Icon_nextPage}"
+                            Fill="Blue"
+                            Stretch="Uniform" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CloseButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="bg"
+                        Background="Transparent"
+                        CornerRadius="100"
+                        UseLayoutRounding="True">
+                        <Path
+                            x:Name="icon"
+                            Width="16"
+                            Height="16"
+                            Margin="5,0,0,0"
+                            Data="{StaticResource Icon_close}"
+                            Fill="Blue"
+                            Stretch="Uniform" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="MusicPlayButton" TargetType="ToggleButton">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">

@@ -2,16 +2,33 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:WCS.ViewModel.TopBar"
       x:Class="WCS.View.TopBar.MessagePage"
       mc:Ignorable="d"
-      Title="UserWindow" 
+      Title="MessageWindow" 
       d:DesignHeight="450"
       d:DesignWidth="800"
       Foreground="{StaticResource TextColor}">
+    <Page.DataContext>
+        <viewmodel:MessageViewModel />
+    </Page.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
+            <Grid>
+                <WrapPanel
+                    Margin="30,0,0,5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <TextBlock FontSize="18" Text="系统设置 | 报警信息"/>
+                </WrapPanel>
+            </Grid>
+        </Border>
         <DataGrid
-                x:Name="UserDataGrid"
+                x:Name="MesssageDataGrid"
                 Grid.Row="1"
                 AlternationCount="2"
                 AutoGenerateColumns="False"
@@ -25,46 +42,21 @@
                 GridLinesVisibility="None"
                 HeadersVisibility="Column"
                 IsReadOnly="True"
-                ItemsSource="{Binding UserList}"
-                RowHeight="28"
-                RowEditEnding="UserDataGrid_RowEditEnding"
-                SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
+                ItemsSource="{Binding ErrorLogList}"
+                RowHeight="28">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="操作" Width="60">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <CheckBox Click="CheckBox_Click" Tag="{Binding LoginName}"></CheckBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding LoginName}"
-                        Header="登录名" />
+                        Binding="{Binding LogType}"
+                        Header="消息类型" />
                 <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding LoginPassword}"
-                        Header="登录密码" />
+                        Binding="{Binding LogLocation}"
+                        Header="消息地点" />
                 <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding PrivilegeLevel}"
-                        Header="权限等级" />
-                <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding CreatPerson}"
-                        Header="创建人" />
-                <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding CreatTime}"
-                        Header="创建时间" />
-                <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding ModifyPerson}"
-                        Header="修改人" />
-                <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding ModifyTime}"
-                        Header="修改时间" />
+                        Binding="{Binding LogMessage}"
+                        Header="消息内容" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

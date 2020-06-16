@@ -59,14 +59,12 @@ namespace Tool
             }
         }
 
-
         /// <summary>
         /// 序列化
         /// </summary>
         public static void Save()
         {
             StreamWriter fs = null;
-            StreamWriter plc_fs = null;
             try
             {
                 fs = new StreamWriter(configFilePath);
@@ -83,8 +81,6 @@ namespace Tool
             {
                 if (fs != null)
                     fs.Close();
-                if (plc_fs != null)
-                    plc_fs.Close();
             }
         }
     }

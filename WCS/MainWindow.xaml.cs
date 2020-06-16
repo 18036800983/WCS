@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DMSkin.WPF.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WCS.Converters;
+using WCS.View.TopBar;
+using WCS.ViewModel.LoginM;
 
 namespace WCS
 {
@@ -24,12 +28,59 @@ namespace WCS
         public MainWindow()
         {
             InitializeComponent();
+            this.Width = SystemParameters.PrimaryScreenWidth;
+            this.Height = SystemParameters.PrimaryScreenHeight;
+            this.userInfoName.Text = LoginViewModel.loginName;
         }
 
-        private void DMButton_SwitchUser_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 系统设置Check事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sysRB_Checked(object sender, RoutedEventArgs e)
         {
-            BarcodeRuleButton.Visibility = Visibility.Collapsed;
-            InitializeComponent();
+            sysRB.IsChecked = false;
+        }
+
+        /// <summary>
+        /// 换肤Check事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinRB_Checked(object sender, RoutedEventArgs e)
+        {
+            //skinRB.IsChecked = false;
+        }
+
+        /// <summary>
+        /// 信息框Check事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void messageRB_Checked(object sender, RoutedEventArgs e)
+        {
+            messageRB.IsChecked = false;
+        }
+
+        /// <summary>
+        /// 当前用户Check事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void userInfoRB_Checked(object sender, RoutedEventArgs e)
+        {
+            userInfoRB.IsChecked = false;
+        }
+
+        /// <summary>
+        /// 关闭按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DMSystemCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

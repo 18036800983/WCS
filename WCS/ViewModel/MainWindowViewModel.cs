@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using WCS.Manager;
 using WCS.Model;
+using WCS.View.BaseM;
+using WCS.View.BoardM;
+using WCS.View.LogM;
+using WCS.View.SysM;
+using WCS.View.TopBar;
+using WCS.View.WareM;
+using WCS.ViewModel.TopBar;
 
 namespace WCS.ViewModel
 {
@@ -41,67 +48,80 @@ namespace WCS.ViewModel
                 switch (selectMenu)
                 {
                     case LeftMenu.Home:
-                        CurrentPage = PageManager.homePage;
+                        CurrentPage = new HomePage();
                         break;
                     case LeftMenu.BarcodeRule:
-                        CurrentPage = PageManager.barcodeRulePage;
+                        CurrentPage = new BarcodeRulePage();
                         break;
                     case LeftMenu.Client:
-                        CurrentPage = PageManager.clientPage;
+                        CurrentPage = new ClientPage();
                         break;
                     case LeftMenu.Prodution:
-                        CurrentPage = PageManager.productionPage;
+                        CurrentPage = new ProductionPage();
                         break;
                     case LeftMenu.Supplier:
-                        CurrentPage = PageManager.supplierPage;
+                        CurrentPage = new SupplierPage();
                         break;
                     case LeftMenu.WareHouseBoard:
-                        CurrentPage = PageManager.wareHouseBoardPage;
+                        CurrentPage = new WareHouseBoardPage();
                         break;
                     case LeftMenu.WareHouseChart:
-                        CurrentPage = PageManager.wareHouseChartPage;
+                        CurrentPage = new WareHouseChartPage();
                         break;
                     case LeftMenu.ChartLog:
-                        CurrentPage = PageManager.chartLogPage;
+                        CurrentPage = new ChartLogPage();
                         break;
                     case LeftMenu.LoginLog:
-                        CurrentPage = PageManager.loginLogPage;
+                        CurrentPage = new LoginLogPage();
                         break;
                     case LeftMenu.RunLog:
-                        CurrentPage = PageManager.runLoginPage;
+                        CurrentPage = new RunLoginPage();
                         break;
                     case LeftMenu.SysLog:
-                        CurrentPage = PageManager.sysLogPage;
+                        CurrentPage = new SysLogPage();
                         break;
                     case LeftMenu.Character:
-                        CurrentPage = PageManager.characterPage;
+                        CurrentPage = new CharacterPage();
                         break;
                     case LeftMenu.Partment:
-                        CurrentPage = PageManager.partmentPage;
+                        CurrentPage = new PartmentPage();
                         break;
                     case LeftMenu.Permiss:
-                        CurrentPage = PageManager.permissionPage;
+                        CurrentPage = new PermissionPage();
                         break;
                     case LeftMenu.User:
-                        CurrentPage = PageManager.userPage;
+                        CurrentPage = new UserPage();
                         break;
                     case LeftMenu.Area:
-                        CurrentPage = PageManager.areaPage;
+                        CurrentPage = new AreaPage();
                         break;
                     case LeftMenu.InStock:
-                        CurrentPage = PageManager.inStockPage;
+                        CurrentPage = new InStockPage();
                         break;
                     case LeftMenu.OutWarehouse:
-                        CurrentPage = PageManager.outWarehousePage;
+                        CurrentPage = new OutWarehousePage();
                         break;
                     case LeftMenu.Shelf:
-                        CurrentPage = PageManager.shelfPage;
+                        CurrentPage = new ShelfPage();
                         break;
                     case LeftMenu.Storage:
-                        CurrentPage = PageManager.storagePage;
+                        CurrentPage = new StoragePage();
                         break;
                     case LeftMenu.WareHouse:
-                        CurrentPage = PageManager.warehousePage;
+                        CurrentPage = new WarehousePage();
+                        break;
+                    case LeftMenu.Message:
+                        //PageManager.messagePage = new View.TopBar.MessagePage();
+                        CurrentPage = new MessagePage();
+                        break;
+                    case LeftMenu.Setting:
+                        CurrentPage = new SettingPage();
+                        break;
+                    case LeftMenu.Skin:
+                        CurrentPage =  new SkinPage();
+                        break;
+                    case LeftMenu.UserInfo:
+                        CurrentPage = new UserInfoPage();
                         break;
                 }
                 OnPropertyChanged("SelectMenu");

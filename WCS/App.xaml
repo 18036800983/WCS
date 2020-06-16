@@ -4,7 +4,7 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:converters="clr-namespace:WCS.Converters"
          xmlns:dmconverters="clr-namespace:DMSkin.Core.Converters;assembly=DMSkin.Core"
-         StartupUri="MainWindow.xaml">
+         StartupUri="/View/LoginM/LoginPage.xaml">
     <Application.Resources>
         <ResourceDictionary>
         <!--  字体  -->

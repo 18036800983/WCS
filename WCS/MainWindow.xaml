@@ -17,7 +17,6 @@
     ResizeMode="CanResizeWithGrip"
     TextOptions.TextFormattingMode="Display"
     WindowStartupLocation="CenterScreen"
-    WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>
         <viewmodel:MainWindowViewModel />
@@ -69,11 +68,38 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <dmcontrols:DMButton
+                <controls:ImageRadioButton
+                    x:Name="userInfoRB"
+                    GroupName="Menu"
+                    Foreground="#EEC1C1"
+                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter},ConverterParameter=UserInfo}"
+                    Checked="userInfoRB_Checked">
+                    <WrapPanel>
+                        <Ellipse Width="25" Height="25">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="headImage" ImageSource="Image/Head.jpeg"  RenderOptions.BitmapScalingMode="Fant" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock
+                            Name="userInfoName"
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="ZJS" />
+                        <Path
+                            Width="10"
+                            Height="10"
+                            Margin="15,0,0,0"
+                            Data="{StaticResource Icon_menuDown}"
+                            Fill="White"                       
+                            Stretch="Uniform" RenderTransformOrigin="0.51,0.72"/>
+                    </WrapPanel>
+                </controls:ImageRadioButton>
+                <!--<dmcontrols:DMButton
                     Margin="10,0,15,0"
                     Background="{StaticResource TransparentColor}"
                     BorderThickness="0"
-                    Cursor="Hand" Click="DMButton_SwitchUser_Click">
+                    Cursor="Hand">
                     <WrapPanel>
                         <Ellipse Width="25" Height="25">
                             <Ellipse.Fill>
@@ -90,54 +116,31 @@
                             Height="10"
                             Margin="15,0,0,0"
                             Data="{StaticResource Icon_menuDown}"
-                            Fill="White"
-                            Stretch="Uniform"/>
+                            Fill="White"                       
+                            Stretch="Uniform" RenderTransformOrigin="0.51,0.72"/>
                     </WrapPanel>
-                </dmcontrols:DMButton>
-                <dmcontrols:DMSystemButton
-                    Margin="5,0,15,0"
-                    Cursor="Hand"
-                    DMSystemButtonForeground="#EEC1C1"
-                    DMSystemButtonHoverColor="Transparent"
-                    DMSystemButtonHoverForeground="White"
-                    DMSystemButtonSize="27"
-                    Icon="{StaticResource Icon_skinning}"
-                    IconWidth="17" />
-                <Grid>
-                    <dmcontrols:DMSystemButton
-                        Margin="0,0,5,0"
-                        HorizontalAlignment="Right"
-                        Cursor="Hand"
-                        DMSystemButtonForeground="#EEC1C1"
-                        DMSystemButtonHoverColor="Transparent"
-                        DMSystemButtonHoverForeground="White"
-                        DMSystemButtonSize="26"
-                        Icon="{StaticResource Icon_message}"
-                        IconHeight="12"
-                        IconWidth="16" />
-                    <Border
-                        Height="16"
-                        Margin="0,0,-5,15"
-                        Padding="4,0,4,0"
-                        HorizontalAlignment="Right"
-                        Background="White"
-                        CornerRadius="8">
-                        <TextBlock
-                            Margin="0,0,0,1"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Foreground="{StaticResource ThemeColor}"
-                            Text="0" />
-                    </Border>
-                </Grid>
-                <dmcontrols:DMSystemButton
-                    Margin="10,0,0,0"
-                    Cursor="Hand"
-                    DMSystemButtonForeground="#EEC1C1"
-                    DMSystemButtonHoverColor="Transparent"
-                    DMSystemButtonHoverForeground="White"
-                    DMSystemButtonSize="26"
-                    Icon="{StaticResource Icon_systemSetting2}" />
+                </dmcontrols:DMButton>-->
+                <!--<controls:ImageRadioButton
+                    x:Name="skinRB"
+                    GroupName="Menu"
+                    Foreground="#EEC1C1"
+                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter},ConverterParameter=Skin}"
+                    Checked="skinRB_Checked"
+                    Width="54" Image="{StaticResource Icon_skinning}"/>-->
+                <controls:ImageRadioButton
+                    x:Name="messageRB"
+                    GroupName="Menu"
+                    Foreground="#EEC1C1"
+                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter},ConverterParameter=Message}" 
+                    Checked="messageRB_Checked"
+                    Width="54" Image="{StaticResource Icon_message}"/>
+                <controls:ImageRadioButton
+                    x:Name="sysRB"
+                    GroupName="Menu"
+                    Foreground="#EEC1C1"
+                    IsChecked="{Binding SelectMenu, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter},ConverterParameter=Setting}" 
+                    Checked="sysRB_Checked"
+                    Width="54" Image="{StaticResource Icon_systemSetting2}"/>
                 <Border
                     Width="1"
                     Height="22"
@@ -162,7 +165,8 @@
                     DMSystemButtonForeground="#EEC1C1"
                     DMSystemButtonHoverColor="Transparent"
                     DMSystemButtonHoverForeground="White"
-                    DMSystemButtonSize="22" />
+                    DMSystemButtonSize="22" 
+                    Click="DMSystemCloseButton_Click"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
@@ -177,8 +181,7 @@
                     <StackPanel>
                         <Expander
                             Header="基础配置"
-                            IsExpanded="True"                          
-                            Style="{StaticResource NoExpander}">
+                            IsExpanded="True">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="客户管理"
@@ -205,8 +208,7 @@
                         </Expander>
                         <Expander
                             Header="系统配置"
-                            IsExpanded="True"                          
-                            Style="{StaticResource NoExpander}">
+                            IsExpanded="True">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="用户管理"
@@ -232,8 +234,7 @@
                         </Expander>
                         <Expander
                             Header="仓库配置"
-                            IsExpanded="True"                          
-                            Style="{StaticResource NoExpander}">
+                            IsExpanded="True">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="仓库管理"
@@ -269,8 +270,7 @@
                         </Expander>
                         <Expander
                             Header="日志管理"
-                            IsExpanded="True"                          
-                            Style="{StaticResource NoExpander}">
+                            IsExpanded="True">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="登录日志"
@@ -296,8 +296,7 @@
                         </Expander>
                         <Expander
                             Header="看板信息"
-                            IsExpanded="True"                          
-                            Style="{StaticResource NoExpander}">
+                            IsExpanded="True">
                             <StackPanel>
                                 <controls:ImageRadioButton
                                     Content="库位信息"

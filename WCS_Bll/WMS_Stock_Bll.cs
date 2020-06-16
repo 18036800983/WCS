@@ -65,5 +65,13 @@ namespace WCS_Bll
                 return con.Execute(WMS_Stock_Dal.Delete_Stock(condition));
             }
         }
+
+        public static DataTable Select_StockDisplay() 
+        {
+            using (var con = GetOpenConnection())
+            {
+                return con.ExecuteDataTable(WMS_Stock_Dal.Select_StockDisplay());
+            }
+        }
     }
 }

@@ -170,6 +170,14 @@
                         Width="*"
                         Binding="{Binding PutInNo}"
                         Header="入库编号" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding LocationNo}"
+                        Header="位置编号" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Status}"
+                        Header="状态" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

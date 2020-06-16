@@ -26,10 +26,20 @@ namespace WCS_Dal
             }
             else
             {
-                _selectSql = "SELECT [ShelfName],[ShelfNo],[AreaNo]"
-                    + ",[WarehouseNo],[Remark],[CreatPerson],[CreatTime]"
-                    + ",[ModifyPerson],[ModifyTime] " 
-                    + "FROM [WMS].[dbo].[WMS_Shelf] WHERE " + condition;
+                if (condition.Contains("ORDER"))
+                {
+                    _selectSql = "SELECT [ShelfName],[ShelfNo],[AreaNo]"
+                       + ",[WarehouseNo],[Remark],[CreatPerson],[CreatTime]"
+                       + ",[ModifyPerson],[ModifyTime] "
+                       + "FROM [WMS].[dbo].[WMS_Shelf] ORDER BY [AreaNo]";
+                }
+                else
+                {
+                    _selectSql = "SELECT [ShelfName],[ShelfNo],[AreaNo]"
+                        + ",[WarehouseNo],[Remark],[CreatPerson],[CreatTime]"
+                        + ",[ModifyPerson],[ModifyTime] "
+                        + "FROM [WMS].[dbo].[WMS_Shelf] WHERE " + condition;
+                }
             }
             return _selectSql;
         }

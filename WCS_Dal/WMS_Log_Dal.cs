@@ -25,8 +25,17 @@ namespace WCS_Dal
             }
             else
             {
-                _selectSql = "SELECT [LogTime],[LogType],[LogLocation]"
-                    + ",[LogMessage],[LogLevel] FROM [WMS].[dbo].[WMS_Log] Where " + condition;
+                if (condition.Contains("LogLevel"))
+                {
+                    _selectSql = "SELECT Top 1 [LogTime],[LogType],[LogLocation]"
+                        + ",[LogMessage],[LogLevel] FROM [WMS].[dbo].[WMS_Log] Where " 
+                        + condition + " order by LogTime desc";
+                }
+                else
+                {
+                    _selectSql = "SELECT [LogTime],[LogType],[LogLocation]"
+                        + ",[LogMessage],[LogLevel] FROM [WMS].[dbo].[WMS_Log] Where " + condition;
+                }
             }
             return _selectSql;
         }

@@ -1,5 +1,4 @@
-﻿using MyLog;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace WCS_Model.XML
@@ -89,13 +88,13 @@ namespace WCS_Model.XML
          ReadOnly(false)]
         public ControlTagType ConnectType { get; set; }
 
-        [XmlElement("LogKeepPeriod"),
-         Category("工艺设置"),
-         DisplayName("日志保存时间"),
-         Description("日志保存时间"),
-         Browsable(true),
-         ReadOnly(false)]
-        public LogExpired LogKeepPeriod { get; set; }
+        //[XmlElement("LogKeepPeriod"),
+        // Category("工艺设置"),
+        // DisplayName("日志保存时间"),
+        // Description("日志保存时间"),
+        // Browsable(true),
+        // ReadOnly(false)]
+        //public LogExpired LogKeepPeriod { get; set; }
 
         [XmlElement("AutoStart"),
          Category("工艺设置"),

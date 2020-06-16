@@ -1,14 +1,69 @@
-﻿<Page x:Class="WCS.View.TopBar.SettingPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WCS.View.TopBar"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SettingPage">
-
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dmcontrols="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF" xmlns:viewmodel="clr-namespace:WCS.ViewModel.TopBar" xmlns:dmcontrols1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+    x:Class="WCS.View.TopBar.SettingPage"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800"
+    Title="SettingPage">
+    <Page.DataContext>
+        <viewmodel:SettingViewModel />
+    </Page.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
+            <Grid>
+                <WrapPanel
+                    Margin="30,0,0,5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <TextBlock FontSize="18" Text="系统设置 | 系统设置"/>
+                </WrapPanel>
+            </Grid>
+        </Border>
+        <DataGrid
+                x:Name="DBConfigDataGrid"
+                Grid.Row="1"
+                AlternationCount="2"
+                AutoGenerateColumns="False"
+                BorderThickness="0,1,0,0"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="False"
+                CanUserResizeColumns="False"
+                CanUserResizeRows="False"
+                ColumnHeaderHeight="30"
+                GridLinesVisibility="None"
+                HeadersVisibility="Column"
+                IsReadOnly="True"
+                ItemsSource="{Binding DBConfigList}"
+                RowHeight="28">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding DataSource}"
+                        Header="服务器" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding InitialCatalog}"
+                        Header="数据库" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding UserID}"
+                        Header="用户名" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Pwd}"
+                        Header="密码" />
+                <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding DatabaseType}"
+                        Header="数据类型" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

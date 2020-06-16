@@ -117,5 +117,25 @@ namespace WCS.Model
         /// 仓库
         /// </summary>
         WareHouse,
+
+        /// <summary>
+        /// 报警信息
+        /// </summary>
+        Message,
+
+        /// <summary>
+        /// 系统设置
+        /// </summary>
+        Setting,
+
+        /// <summary>
+        /// 皮肤
+        /// </summary>
+        Skin,
+
+        /// <summary>
+        /// 当前用户信息
+        /// </summary>
+        UserInfo,
     }
 }

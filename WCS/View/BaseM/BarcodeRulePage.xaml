@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
             <Grid>
@@ -31,94 +32,94 @@
         </Border>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="58" />
-                <RowDefinition />
+                <RowDefinition Height="50" />
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
-                <StackPanel Margin="30,0,0,0" Orientation="Horizontal">
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White" Click="DMButton_Add_Click">
-                        <Path
+            <!--<Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1" Margin="0,0,0,293.2" Grid.RowSpan="2" Grid.Row="0">-->
+            <StackPanel Margin="0,0,0,0.6" Orientation="Horizontal" Grid.Row="0">
+                <dmcontrols:DMButton
+                            Width="28"
+                            Height="28"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="0"
+                            CornerRadius="0,5,5,0"
+                            Foreground="White" Click="DMButton_Add_Click" RenderTransformOrigin="-0.329,0.551">
+                    <Path
                             Width="12"
                             Height="12"
                             Data="{StaticResource Icon_add}"
                             Fill="White"
                             Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White" Click="DMButton_Edit_Click">
-                        <Path
+                </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                            Width="28"
+                            Height="28"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="0"
+                            CornerRadius="0,5,5,0"
+                            Foreground="White" Click="DMButton_Edit_Click">
+                    <Path
                             Width="12"
                             Height="12"
                             Data="{StaticResource Icon_edit}"
                             Fill="White"
                             Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <dmcontrols:DMButton
-                        Width="28"
-                        Height="28"
-                        Background="{StaticResource ThemeColor}"
-                        BorderThickness="0"
-                        CornerRadius="0,5,5,0"
-                        Foreground="White" Click="DMButton_Delete_Click">
-                        <Path
+                </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                            Width="28"
+                            Height="28"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="0"
+                            CornerRadius="0,5,5,0"
+                            Foreground="White" Click="DMButton_Delete_Click">
+                    <Path
                             Width="12"
                             Height="12"
                             Data="{StaticResource Icon_delete}"
                             Fill="White"
                             Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <dmcontrols:DMButton
+                </dmcontrols:DMButton>
+                <dmcontrols:DMButton
                         Width="28"
                         Height="28"
                         Background="{StaticResource ThemeColor}"
                         BorderThickness="0"
                         CornerRadius="0,5,5,0"
                         Foreground="White" Click="DMButton_Save_Click">
-                        <Path
+                    <Path
                             Width="12"
                             Height="12"
                             Data="{StaticResource Icon_success}"
                             Fill="White"
                             Stretch="Uniform" />
-                    </dmcontrols:DMButton>
-                    <Grid Margin="20,18,0,17.8" Width="137" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="20" />
-                        </Grid.ColumnDefinitions>
-                        <dmcontrols:DMTextBox
+                </dmcontrols:DMButton>
+                <Grid Margin="20,18,0,17.8" Width="137" Height="28" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <dmcontrols:DMTextBox
                             Background="White"
                             BorderThickness="2"
                             CaretBrush="{StaticResource ThemeColor}"
                             Foreground="{StaticResource ThemeColor}"
                             Hint="搜索产品编号    "
                             Name="SearchText"
-                            HintColor="{StaticResource ThemeColor}" HorizontalAlignment="Left" Width="117" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" />
-                        <dmcontrols:DMButton
+                            HintColor="{StaticResource ThemeColor}" HorizontalAlignment="Left" Width="117" Grid.ColumnSpan="2" />
+                    <dmcontrols:DMButton
                                 Grid.Column="1"
                                 Background="{StaticResource ThemeColor}"
                                 BorderThickness="2" Click="DMButton_Search_Click">
-                            <Path
+                        <Path
                                 Width="12"
                                 Height="12"
                                 Data="{StaticResource Icon_search}"
                                 Fill="White"
                                 Stretch="Fill" />
-                        </dmcontrols:DMButton>
-                    </Grid>
-                </StackPanel>
-            </Border>
+                    </dmcontrols:DMButton>
+                </Grid>
+            </StackPanel>
+            <!--</Border>-->
             <DataGrid
                 x:Name="BarcodeDataGrid"
                 Grid.Row="1"
@@ -137,7 +138,7 @@
                 ItemsSource="{Binding BarcodeList}"
                 RowHeight="28"
                 RowEditEnding="DataGrid_RowEditEnding"
-                SelectedItem="{Binding SelectedBarcode, Mode=TwoWay}">
+                SelectedItem="{Binding SelectedBarcode, Mode=TwoWay}" Margin="0,0.4,0,0.8">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="操作" Width="60">
                         <DataGridTemplateColumn.CellTemplate>
@@ -177,5 +178,74 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,2,0,1" Grid.Row="2">
+
+            <StackPanel Margin="5,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <dmcontrols:DMButton
+                            Width="30"
+                            Height="30"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="1"
+                            CornerRadius="5,5,5,5"
+                            Foreground="White" RenderTransformOrigin="0,0" Margin="5,5,0,2.6">
+                <Path
+                            Width="14"
+                            Height="14"
+                            Data="{StaticResource Icon_firstPage}"
+                            Fill="White"
+                            Stretch="Fill" />
+            </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                            Width="30"
+                            Height="30"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="1"
+                            CornerRadius="5,5,5,5"
+                            Foreground="White" Margin="5,2,0,-0.4">
+                <Path
+                            Width="14"
+                            Height="14"
+                            Data="{StaticResource Icon_previousPage}"
+                            Fill="White"
+                            Stretch="Fill" />
+            </dmcontrols:DMButton>
+                <dmcontrols:DMTextBox
+                            Background="White"
+                            BorderThickness="3"
+                            CaretBrush="{StaticResource ThemeColor}"
+                            Foreground="{StaticResource ThemeColor}"
+                            Text="        0     /     0"
+                            Name="CurPage"
+                            HorizontalAlignment="Center" Width="120" Grid.ColumnSpan="2" />
+                <dmcontrols:DMButton
+                            Width="30"
+                            Height="30"
+                            Background="{StaticResource ThemeColor}"
+                            BorderThickness="1"
+                            CornerRadius="5,5,5,5"
+                            Foreground="White" Margin="5,2,0,-0.4">
+                <Path
+                            Width="14"
+                            Height="14"
+                            Data="{StaticResource Icon_nextPage}"
+                            Fill="White"
+                            Stretch="Fill" />
+            </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                        Width="30"
+                        Height="30"
+                        Background="{StaticResource ThemeColor}"
+                        BorderThickness="1"
+                        CornerRadius="5,5,5,5"
+                        Foreground="White" Margin="5,2,0,-0.4">
+                <Path
+                            Width="14"
+                            Height="14"
+                            Data="{StaticResource Icon_endPage}"
+                            Fill="White"
+                            Stretch="Fill" />
+            </dmcontrols:DMButton>
+        </StackPanel>
+        </Border>
     </Grid>
 </Page>

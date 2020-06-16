@@ -9,6 +9,8 @@ namespace WCS_Model.DB
 {
     public class WMS_Log_Model : ViewModelBase
     {
+        private int logID;
+
         private string logTime;
 
         private string logType;
@@ -62,6 +64,15 @@ namespace WCS_Model.DB
         {
             get => logLevel;
             set { logLevel = value; OnPropertyChanged("LogLevel"); }
+        }
+
+        /// <summary>
+        /// 日志ID
+        /// </summary>
+        public int LogID 
+        { 
+            get => logID;
+            set { logID = value; OnPropertyChanged("LogID"); }
         }
     }
 }

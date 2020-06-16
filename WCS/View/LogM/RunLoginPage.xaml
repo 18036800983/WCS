@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,0,0,1">
             <Grid>
@@ -129,5 +130,78 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <Border BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,2,0,1" Grid.Row="2">
+
+            <StackPanel Margin="5,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <dmcontrols:DMButton
+                    Name="FirstPage"
+                    Width="30"
+                    Height="30"
+                    Background="{StaticResource ThemeColor}"
+                    BorderThickness="1"
+                    CornerRadius="5,5,5,5"
+                    Foreground="White" RenderTransformOrigin="0,0" Margin="5,5,0,2.6" Click="FirstPage_Click">
+                    <Path
+                        Width="14"
+                        Height="14"
+                        Data="{StaticResource Icon_firstPage}"
+                        Fill="White"
+                        Stretch="Fill" />
+                </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                    Name="previousPage"
+                    Width="30"
+                    Height="30"
+                    Background="{StaticResource ThemeColor}"
+                    BorderThickness="1"
+                    CornerRadius="5,5,5,5"
+                    Foreground="White" Margin="5,2,0,-0.4" Click="previousPage_Click">
+                    <Path
+                        Width="14"
+                        Height="14"
+                        Data="{StaticResource Icon_previousPage}"
+                        Fill="White"
+                        Stretch="Fill" />
+                </dmcontrols:DMButton>
+                <dmcontrols:DMTextBox
+                    Background="White"
+                    BorderThickness="3"
+                    CaretBrush="{StaticResource ThemeColor}"
+                    Foreground="{StaticResource ThemeColor}"
+                    Text="        0     /     0"
+                    Name="CurPage"
+                    HorizontalAlignment="Center" Width="120" Grid.ColumnSpan="2"/>
+                <dmcontrols:DMButton
+                    Name="NextPage"
+                    Width="30"
+                    Height="30"
+                    Background="{StaticResource ThemeColor}"
+                    BorderThickness="1"
+                    CornerRadius="5,5,5,5"
+                    Foreground="White" Margin="5,2,0,-0.4" Click="NextPage_Click">
+                    <Path
+                        Width="14"
+                        Height="14"
+                        Data="{StaticResource Icon_nextPage}"
+                        Fill="White"
+                        Stretch="Fill" />
+                </dmcontrols:DMButton>
+                <dmcontrols:DMButton
+                    Name="EndPage"
+                    Width="30"
+                    Height="30"
+                    Background="{StaticResource ThemeColor}"
+                    BorderThickness="1"
+                    CornerRadius="5,5,5,5"
+                    Foreground="White" Margin="5,2,0,-0.4" Click="EndPage_Click">
+                    <Path
+                        Width="14"
+                        Height="14"
+                        Data="{StaticResource Icon_endPage}"
+                        Fill="White"
+                        Stretch="Fill" />
+                </dmcontrols:DMButton>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

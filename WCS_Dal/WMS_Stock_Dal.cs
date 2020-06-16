@@ -21,12 +21,12 @@ namespace WCS_Dal
             if (string.IsNullOrEmpty(condition))
             {
                 _selectSql = "SELECT [ShelfNo],[AreaNo],[WarehouseNo]"
-                    + ",[SN],[ProductionNo],[PutInNo] FROM [WMS].[dbo].[WMS_Stock]";
+                    + ",[SN],[ProductionNo],[PutInNo],[LocationNo],[Status] FROM [WMS].[dbo].[WMS_Stock]";
             }
             else
             {
                 _selectSql = "SELECT [ShelfNo],[AreaNo],[WarehouseNo]"
-                    + ",[SN],[ProductionNo],[PutInNo] FROM [WMS].[dbo].[WMS_Stock] WHERE " + condition;
+                    + ",[SN],[ProductionNo],[PutInNo],[LocationNo],[Status] FROM [WMS].[dbo].[WMS_Stock] WHERE " + condition;
             }
             return _selectSql;
         }
@@ -40,11 +40,12 @@ namespace WCS_Dal
         {
             string _insertSql = "INSERT INTO [WMS].[dbo].[WMS_Stock]" 
                 + "([ShelfNo],[AreaNo],[WarehouseNo],[SN],[ProductionNo]" 
-                + ",[PutInNo])VALUES('" + wms_Stock_Model.ShelfNo 
+                + ",[PutInNo],[LocationNo],[Status])VALUES('" + wms_Stock_Model.ShelfNo 
                 + "','" + wms_Stock_Model.AreaNo + "','" 
                 + wms_Stock_Model.WarehouseNo + "','" 
                 + wms_Stock_Model.SN + "','" + wms_Stock_Model.ProductionNo 
-                + "','" + wms_Stock_Model.PutInNo + "')";
+                + "','" + wms_Stock_Model.PutInNo + "','" + wms_Stock_Model.LocationNo 
+                + "'," + wms_Stock_Model.Status + ")";
             return _insertSql;
         }
 
@@ -62,8 +63,10 @@ namespace WCS_Dal
                 + "',[WarehouseNo] = '" + wms_Stock_Model.WarehouseNo 
                 + "',[SN] = '" + wms_Stock_Model.SN 
                 + "',[ProductionNo] = '" + wms_Stock_Model.ProductionNo 
-                + "',[PutInNo] = '" + wms_Stock_Model.PutInNo 
-                + "' WHERE " + condition;
+                + "',[PutInNo] = '" + wms_Stock_Model.PutInNo
+                + "',[LocationNo] = '" + wms_Stock_Model.LocationNo
+                + "',[Status] = " + wms_Stock_Model.Status
+                + " WHERE " + condition;
             return _updateSql;
         }
 
@@ -84,6 +87,18 @@ namespace WCS_Dal
                 _deleteSql = "DELETE FROM [WMS].[dbo].[WMS_Stock] WHERE " + condition;
             }
             return _deleteSql;
+        }
+
+        /// <summary>
+        /// 库存显示
+        /// </summary>
+        /// <returns></returns>
+        public static string Select_StockDisplay() 
+        {
+            string _selectSql = "SELECT[ShelfNo],[AreaNo],[WarehouseNo]"
+                    + ",[SN],[ProductionNo],[PutInNo],[LocationNo],[Status] FROM [WMS].[dbo].[WMS_Stock]"
+                    + " ORDER BY [AreaNo],[LocationNo]";
+            return _selectSql;
         }
     }
 }

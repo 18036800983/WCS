@@ -8,6 +8,7 @@ using WCS.View.BaseM;
 using WCS.View.BoardM;
 using WCS.View.LogM;
 using WCS.View.SysM;
+using WCS.View.TopBar;
 using WCS.View.WareM;
 
 namespace WCS.Manager
@@ -15,55 +16,65 @@ namespace WCS.Manager
     public class PageManager
     {
         #region Base
-        public static HomePage homePage = new HomePage();
+        public static HomePage homePage;
 
-        public static BarcodeRulePage barcodeRulePage = new BarcodeRulePage();
+        public static BarcodeRulePage barcodeRulePage;
 
-        public static ClientPage clientPage = new ClientPage();
+        public static ClientPage clientPage;
 
-        public static ProductionPage productionPage = new ProductionPage();
+        public static ProductionPage productionPage;
 
-        public static SupplierPage supplierPage = new SupplierPage();
+        public static SupplierPage supplierPage;
         #endregion
 
         #region Board
-        public static WareHouseBoardPage wareHouseBoardPage = new WareHouseBoardPage();
+        public static WareHouseBoardPage wareHouseBoardPage;
 
-        public static WareHouseChartPage wareHouseChartPage = new WareHouseChartPage();
+        public static WareHouseChartPage wareHouseChartPage;
         #endregion
 
         #region Log
-        public static ChartLogPage chartLogPage = new ChartLogPage();
+        public static ChartLogPage chartLogPage;
 
-        public static LoginLogPage loginLogPage = new LoginLogPage();
+        public static LoginLogPage loginLogPage;
 
-        public static RunLoginPage runLoginPage = new RunLoginPage();
+        public static RunLoginPage runLoginPage;
 
-        public static SysLogPage sysLogPage = new SysLogPage();
+        public static SysLogPage sysLogPage;
         #endregion
 
         #region sys
-        public static CharacterPage characterPage = new CharacterPage();
+        public static CharacterPage characterPage;
 
-        public static PartmentPage partmentPage = new PartmentPage();
+        public static PartmentPage partmentPage;
 
-        public static PermissionPage permissionPage = new PermissionPage();
+        public static PermissionPage permissionPage;
 
-        public static UserPage userPage = new UserPage();
+        public static UserPage userPage;
         #endregion
 
         #region Ware
-        public static AreaPage areaPage = new AreaPage();
+        public static AreaPage areaPage;
 
-        public static InStockPage inStockPage = new InStockPage();
+        public static InStockPage inStockPage;
 
-        public static OutWarehousePage outWarehousePage = new OutWarehousePage();
+        public static OutWarehousePage outWarehousePage;
 
-        public static ShelfPage shelfPage = new ShelfPage();
+        public static ShelfPage shelfPage;
 
-        public static StoragePage storagePage = new StoragePage();
+        public static StoragePage storagePage;
 
-        public static WarehousePage warehousePage = new WarehousePage();
+        public static WarehousePage warehousePage;
+        #endregion
+
+        #region Top bar
+        public static MessagePage messagePage;
+
+        public static SettingPage settingPage;
+
+        public static SkinPage skinPage;
+
+        public static UserInfoPage userInfoPage;
         #endregion
     }
 }
